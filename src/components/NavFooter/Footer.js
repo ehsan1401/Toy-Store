@@ -7,7 +7,7 @@ import IconButton from '@mui/material/IconButton';
 
 const Footer = () => {
     return (
-        <Footer className="bg-gray-800 text-white w-full ">
+        <footer className="bg-gray-800 text-white w-full ">
             <div className="quick-acess lg:flex grid text-center lg:text-left gap-14 px-10 py-5 ">
             <ul className='flex-1'>
                     <h1 className='font-semibold text-xl'>About</h1>
@@ -68,7 +68,7 @@ const Footer = () => {
             <div className='text-center px-10 pb-3 font-semibold text-gray-300'>
                     <p>Copyright© 2023 EH$AN</p>
             </div>
-        </Footer>
+        </footer>
     );
 }
  
