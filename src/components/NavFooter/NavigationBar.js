@@ -15,7 +15,7 @@ import { orange , white } from '@mui/material/colors';
 import { Link } from 'react-router-dom';
 import Search from '../NavFooter/SearchBar';
 
-const pages = ['Home', 'Store', 'Blog'];
+const pages = ['Home', 'Store', 'Games'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {

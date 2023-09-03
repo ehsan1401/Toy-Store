@@ -40,10 +40,10 @@ const Footer = () => {
                         <li>special offers</li>
                     </Link>                    
                     <Link className='hover:text-red-600  ml-1'>
-                        <li>New Products</li>
+                        <li>-</li>
                     </Link>                    
                     <Link className='hover:text-red-600  ml-1'>
-                        <li>New Products</li>
+                        <li>-</li>
                     </Link>
                 </ul>
                 <ul className='social-network grid my-5 '>
