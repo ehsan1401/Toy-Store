@@ -1,0 +1,124 @@
+[
+    {
+        "Code":1,
+        "toyName" : "PLAMAX Pochita",
+        "title":"PLAMAX Pochita",
+        "toyImages" : ["./img/Toys/PLAMAX-Pochita/01.jpg","./img/Toys/PLAMAX-Pochita/02.jpg","./img/Toys/PLAMAX-Pochita/03.jpg","./img/Toys/PLAMAX-Pochita/04.jpg"],
+        "LongDescription":"This is an injection-plastic figure kit.",
+        "ShortDescription":"This is an injection-plastic figure kit.",
+        "Price":30.00,
+        "Symbol":"€",
+        "Category":["Figure"],
+        "PriceBeforeOff":30.93
+    },{
+        "Code":2,
+        "toyName" : "Hatsune Miku Guitar Shaped Shoulder Bag",
+        "title":"Hatsune Miku",
+        "toyImages" : ["./img/Toys/Hatsune-Miku-Guitar-Shaped-Shoulder-Bag/01.jpg","./img/Toys/Hatsune-Miku-Guitar-Shaped-Shoulder-Bag/02.jpg","./img/Toys/Hatsune-Miku-Guitar-Shaped-Shoulder-Bag/03.jpg","./img/Toys/Hatsune-Miku-Guitar-Shaped-Shoulder-Bag/04.jpg"],
+        "Description":"Once upon a digital realm, I found myself in a vivid dream of sound and colors, surrounded by the mesmerizing melodies of Hatsune Miku. As I strolled along, I imagined the most extraordinary accessory - a guitar-shaped bag inspired by the iconic virtual diva herself! In this dreamy world, the bag was a symphony of style and function. Its elegant curves mimicked the graceful contours of a guitar, adorned with Hatsune Miku inspired details, such as a strap based on Miku's skirt belt, a pick-shaped zipper pull featuring her silhouette, and of course, her iconic '01' adorning the front.",
+        "ShortDescription":"This is an injection-plastic figure kit.",
+        "Price":34.02,
+        "Symbol":"€",
+        "Category":["Apparel","Bags"],
+        "PriceBeforeOff":""
+    },{
+        "Code":3,
+        "toyName" : "Melty Princess Bocchi the Rock! Tenohira Hitori Chan",
+        "title":"Princess Bocchi",
+        "toyImages" : ["./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/01.jpg","./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/02.jpg","./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/03.jpg","./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/04.jpg"],
+        "Description":"Hitori-chan from 'Bocchi the Rock!' joins the 'Melty Princess Tenohira' figure lineup from MegaHouse! She's seated in a deep squat, with her guitar case on her back; she wears a track suit with a skirt over the top. An alternate comical facial expression is included, as is a base. She's the perfect size to sit in the palm of your hand, making her just the right size to display anywhere -- place your order today!",
+        "ShortDescription":"This is an injection-plastic figure kit.",
+        "Price":48.69,
+        "Symbol":"€",
+        "Category":["Figure"],
+        "PriceBeforeOff":52.92
+    },{
+        "Code":3,
+        "toyName" : "Melty Princess Bocchi the Rock! Tenohira Hitori Chan",
+        "title":"Princess Bocchi",
+        "toyImages" : ["./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/01.jpg","./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/02.jpg","./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/03.jpg","./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/04.jpg"],
+        "Description":"Hitori-chan from 'Bocchi the Rock!' joins the 'Melty Princess Tenohira' figure lineup from MegaHouse! She's seated in a deep squat, with her guitar case on her back; she wears a track suit with a skirt over the top. An alternate comical facial expression is included, as is a base. She's the perfect size to sit in the palm of your hand, making her just the right size to display anywhere -- place your order today!",
+        "ShortDescription":"This is an injection-plastic figure kit.",
+        "Price":48.69,
+        "Symbol":"€",
+        "Category":["Figure"],
+        "PriceBeforeOff":52.92
+    },{
+        "Code":3,
+        "toyName" : "Melty Princess Bocchi the Rock! Tenohira Hitori Chan",
+        "title":"Princess Bocchi",
+        "toyImages" : ["./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/01.jpg","./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/02.jpg","./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/03.jpg","./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/04.jpg"],
+        "Description":"Hitori-chan from 'Bocchi the Rock!' joins the 'Melty Princess Tenohira' figure lineup from MegaHouse! She's seated in a deep squat, with her guitar case on her back; she wears a track suit with a skirt over the top. An alternate comical facial expression is included, as is a base. She's the perfect size to sit in the palm of your hand, making her just the right size to display anywhere -- place your order today!",
+        "ShortDescription":"This is an injection-plastic figure kit.",
+        "Price":48.69,
+        "Symbol":"€",
+        "Category":["Figure"],
+        "PriceBeforeOff":52.92
+    },{
+        "Code":3,
+        "toyName" : "Melty Princess Bocchi the Rock! Tenohira Hitori Chan",
+        "title":"Princess Bocchi",
+        "toyImages" : ["./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/01.jpg","./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/02.jpg","./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/03.jpg","./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/04.jpg"],
+        "Description":"Hitori-chan from 'Bocchi the Rock!' joins the 'Melty Princess Tenohira' figure lineup from MegaHouse! She's seated in a deep squat, with her guitar case on her back; she wears a track suit with a skirt over the top. An alternate comical facial expression is included, as is a base. She's the perfect size to sit in the palm of your hand, making her just the right size to display anywhere -- place your order today!",
+        "ShortDescription":"This is an injection-plastic figure kit.",
+        "Price":48.69,
+        "Symbol":"€",
+        "Category":["Figure"],
+        "PriceBeforeOff":52.92
+    },{
+        "Code":3,
+        "toyName" : "Melty Princess Bocchi the Rock! Tenohira Hitori Chan",
+        "title":"Princess Bocchi",
+        "toyImages" : ["./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/01.jpg","./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/02.jpg","./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/03.jpg","./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/04.jpg"],
+        "Description":"Hitori-chan from 'Bocchi the Rock!' joins the 'Melty Princess Tenohira' figure lineup from MegaHouse! She's seated in a deep squat, with her guitar case on her back; she wears a track suit with a skirt over the top. An alternate comical facial expression is included, as is a base. She's the perfect size to sit in the palm of your hand, making her just the right size to display anywhere -- place your order today!",
+        "ShortDescription":"This is an injection-plastic figure kit.",
+        "Price":48.69,
+        "Symbol":"€",
+        "Category":["Figure"],
+        "PriceBeforeOff":52.92
+    },{
+        "Code":3,
+        "toyName" : "Melty Princess Bocchi the Rock! Tenohira Hitori Chan",
+        "title":"Princess Bocchi",
+        "toyImages" : ["./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/01.jpg","./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/02.jpg","./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/03.jpg","./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/04.jpg"],
+        "Description":"Hitori-chan from 'Bocchi the Rock!' joins the 'Melty Princess Tenohira' figure lineup from MegaHouse! She's seated in a deep squat, with her guitar case on her back; she wears a track suit with a skirt over the top. An alternate comical facial expression is included, as is a base. She's the perfect size to sit in the palm of your hand, making her just the right size to display anywhere -- place your order today!",
+        "ShortDescription":"This is an injection-plastic figure kit.",
+        "Price":48.69,
+        "Symbol":"€",
+        "Category":["Figure"],
+        "PriceBeforeOff":52.92
+    },{
+        "Code":3,
+        "toyName" : "Melty Princess Bocchi the Rock! Tenohira Hitori Chan",
+        "title":"Princess Bocchi",
+        "toyImages" : ["./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/01.jpg","./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/02.jpg","./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/03.jpg","./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/04.jpg"],
+        "Description":"Hitori-chan from 'Bocchi the Rock!' joins the 'Melty Princess Tenohira' figure lineup from MegaHouse! She's seated in a deep squat, with her guitar case on her back; she wears a track suit with a skirt over the top. An alternate comical facial expression is included, as is a base. She's the perfect size to sit in the palm of your hand, making her just the right size to display anywhere -- place your order today!",
+        "ShortDescription":"This is an injection-plastic figure kit.",
+        "Price":48.69,
+        "Symbol":"€",
+        "Category":["Figure"],
+        "PriceBeforeOff":52.92
+    },{
+        "Code":3,
+        "toyName" : "Melty Princess Bocchi the Rock! Tenohira Hitori Chan",
+        "title":"Princess Bocchi",
+        "toyImages" : ["./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/01.jpg","./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/02.jpg","./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/03.jpg","./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/04.jpg"],
+        "Description":"Hitori-chan from 'Bocchi the Rock!' joins the 'Melty Princess Tenohira' figure lineup from MegaHouse! She's seated in a deep squat, with her guitar case on her back; she wears a track suit with a skirt over the top. An alternate comical facial expression is included, as is a base. She's the perfect size to sit in the palm of your hand, making her just the right size to display anywhere -- place your order today!",
+        "ShortDescription":"This is an injection-plastic figure kit.",
+        "Price":48.69,
+        "Symbol":"€",
+        "Category":["Figure"],
+        "PriceBeforeOff":52.92
+    },{
+        "Code":3,
+        "toyName" : "Melty Princess Bocchi the Rock! Tenohira Hitori Chan",
+        "title":"Princess Bocchi",
+        "toyImages" : ["./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/01.jpg","./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/02.jpg","./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/03.jpg","./img/Toys/Melty-Princess-Bocchi-the-Rock!-Tenohira-Hitori-Chan/04.jpg"],
+        "Description":"Hitori-chan from 'Bocchi the Rock!' joins the 'Melty Princess Tenohira' figure lineup from MegaHouse! She's seated in a deep squat, with her guitar case on her back; she wears a track suit with a skirt over the top. An alternate comical facial expression is included, as is a base. She's the perfect size to sit in the palm of your hand, making her just the right size to display anywhere -- place your order today!",
+        "ShortDescription":"This is an injection-plastic figure kit.",
+        "Price":48.69,
+        "Symbol":"€",
+        "Category":["Figure"],
+        "PriceBeforeOff":52.92
+    }
+]

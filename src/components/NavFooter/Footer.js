@@ -34,7 +34,7 @@ const Footer = () => {
                 <ul className='flex-1 grid font-thin gap-2'>
                     <h1 className='font-semibold text-xl'>Buy Now</h1>
                     <Link className='hover:text-red-600 ml-1'>
-                        <li>New Products</li>
+                        <li>Best Sellers</li>
                     </Link>
                     <Link className='hover:text-red-600  ml-1'>
                         <li>special offers</li>

@@ -11,8 +11,9 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import { orange } from '@mui/material/colors';
+import { orange , white } from '@mui/material/colors';
 import { Link } from 'react-router-dom';
+import Search from '../NavFooter/SearchBar';
 
 const pages = ['Home', 'Store', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -53,6 +54,7 @@ function ResponsiveAppBar() {
               >
                 <MenuIcon />
               </IconButton>
+              <Search />
               <Menu
                 id="menu-appbar"
                 anchorEl={anchorElNav}
@@ -71,6 +73,7 @@ function ResponsiveAppBar() {
                   display: { xs: 'block', md: 'none' },
                 }}
               >
+                
                 {pages.map((page) => (
                   <MenuItem key={page} onClick={handleCloseNavMenu}>
                     <Link to={"/" + page}>
@@ -91,7 +94,9 @@ function ResponsiveAppBar() {
                     {page}
                   </Button>
                 </Link>
+                
               ))}
+              <Search/>
             </Box>
               <div className='m-auto flex flex-1 md:hidden justify-center'>
                   <img src="./img/icon.webp" className='w-12 mr-5 my-3' />
