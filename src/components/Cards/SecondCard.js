@@ -21,13 +21,13 @@ export default function ActionAreaCard({ ops , text , imageURL , beforePrice ,pr
           image={    
             imageURL.slice(0,1)
         }
-          sx={{ height: 250}}
+          sx={{ height: 220}}
           alt={ops}
         />
         <CardContent
             sx={{ height: 160}}
         >
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography gutterBottom variant="h6" component="div" sx={{ height: 28}} >
             {ops}
           </Typography>
           <div className='border-2 border-dashed border-gray-400 h-20 rounded-2xl bg-white'>

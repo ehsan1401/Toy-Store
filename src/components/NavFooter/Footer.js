@@ -22,10 +22,10 @@ const Footer = () => {
                         <li>Home</li>
                     </Link>
                     <Link className='hover:text-red-600 ml-1'>
-                        <li>Store</li>
+                        <li>Account</li>
                     </Link >                    
                     <Link className='hover:text-red-600 ml-1'>
-                        <li>Account</li>
+                        <li>Contact us</li>
                     </Link>                    
                     <Link className='hover:text-red-600 ml-1'>
                         <li>Privacy Policy</li>
@@ -33,6 +33,9 @@ const Footer = () => {
                 </ul>
                 <ul className='flex-1 grid font-thin gap-2'>
                     <h1 className='font-semibold text-xl'>Buy Now</h1>
+                    <Link className='hover:text-red-600  ml-1'>
+                        <li>Store</li>
+                    </Link>
                     <Link className='hover:text-red-600 ml-1'>
                         <li>Best Sellers</li>
                     </Link>
@@ -40,11 +43,8 @@ const Footer = () => {
                         <li>special offers</li>
                     </Link>                    
                     <Link className='hover:text-red-600  ml-1'>
-                        <li>-</li>
+                        <li>Figure Action</li>
                     </Link>                    
-                    <Link className='hover:text-red-600  ml-1'>
-                        <li>-</li>
-                    </Link>
                 </ul>
                 <ul className='social-network grid my-5 '>
                     <div>

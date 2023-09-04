@@ -62,18 +62,16 @@ const Home = () => {
                     <div className="grid w-full">
                         <h1 className="font-bold text-4xl pl-14 pt-4 text-gray-600"><span className="drop-shadow-[-3px_3px_2px_rgba(0,0,0,0.3)]">Best Sellers</span> <span className=" text-orange-700 font-bold text-lg float-right mt-5 pr-10 hover:underline"><Link to={"*"}>See More...</Link></span></h1>
                         <div className="">
-                            <div className="hidden sm:grid md:max-w-4/5 w-full grid-flow-row grid-cols-1 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-4 p-10 gap-4">
+                            <div className="hidden sm:grid md:max-w-4/5 w-full grid-flow-row grid-cols-1 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-4 px-10 pt-5 gap-4">
                                 {Toys.slice(0 , 4).map(toy=>{
                                     return(
-                                        <Link to={"/toy/" + toy.Code}>
-                                            <div className="" key={toy.Code}>
-                                                <Card ops={toy.title} text={toy.ShortDescription} imageURL={toy.toyImages} />
-                                            </div>
-                                        </Link>
+                                        <div className="" key={toy.Code}>
+                                            <Card ops={toy.title} text={toy.ShortDescription}imageURL={toy.toyImages} />
+                                        </div>
                                     )
                                 })}
                             </div>
-                            <div className="md:hidden p-5 gap-4 flex flex-row">
+                            <div className="sm:hidden px-5 pt-5 gap-4 flex flex-row">
                                 {Toys.slice(0 , 2).map(toy=>{
                                     return(
                                         <div className="" key={toy.Code}>
@@ -85,18 +83,20 @@ const Home = () => {
                         
                         </div>
                     </div>
-                    <div className="pop-image w-0 lg:w-1/5 lg:pb-32 p-0 relative right-0 ">
+                    <div className="pop-image w-0 lg:w-1/5 lg:pb-10 p-0 relative right-0 ">
                         <img src="./img/pop-image.webp" className="h-96 lg:float-right lg:pr-10"/>
                     </div>
             </div>
-            <div className="special-offers bg-yellow-400 h-auto flex">
-                    <div className="w-1/3 h-auto relative">
-                        <div className="h-1/3 flex justify-center items-center font-thin text-2xl text-gray-600"> {timerComponents.length ? timerComponents : <span className="text-red-700 font-semibold text-3xl">Special offer has ended! </span>}</div>
+            <div className="special-offers bg-yellow-400 h-auto lg:pb-0 pb-10">
+            <h1 className="font-bold text-4xl pl-14 pt-6 text-gray-50"><span className="drop-shadow-[-3px_3px_2px_rgba(0,0,0,0.3)]">Special Offers</span></h1>
+            <div className="lg:flex grid">
+                    <div className="w-1/3 h-auto relative hidden lg:flex">
+                        <div className="h-1/3 flex justify-center items-center font-thin text-2xl text-gray-600 pl-5"> {timerComponents.length ? timerComponents : <span className="text-red-700 font-semibold text-3xl">Special offer has ended! </span>}</div>
                         <img src="./img/timer.png" className="w-full h-auto absolute bottom-0"/>
                     </div>
-                    <div className="offers w-2/3 h-full py-5 px-3">
-                        <Link to={"*"} className=" pt-3 pb-5 px-5 float-right hover:underline font-semibold text-lg text-blue-600">See more offers...</Link>
-                        <div className="flex flex-row w-full h-full gap-3">
+                    <div className="offers lg:w-2/3 w-full h-full pb-5 px-5">
+                        <Link to={"*"} className=" pt-3 pb-5 lg:px-5 px-2 float-right hover:underline font-semibold lg:text-lg text-base text-blue-600">See more offers...</Link>
+                        <div className="flex flex-row flex-wrap w-full h-full gap-3">
                             {Toys.slice(0 , 4).map(toy=>{
                                 return(
                                     <Link to={"/toy/" + toy.Code}>
@@ -108,6 +108,32 @@ const Home = () => {
                             })}
                         </div>
                     </div>
+            </div>
+            </div>
+            <div className="h-12 bg-gradient-to-b from-yellow-400 to-gray-50">
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div className="? h-96 relative">
+                <div className="absolute bottom-0">
+                    <img src="./img/minionLine.png" className=""/>
+                </div>
             </div>
         </div>
     );
