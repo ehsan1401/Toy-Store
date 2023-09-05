@@ -7,14 +7,15 @@ import IconButton from '@mui/material/IconButton';
 
 const Footer = () => {
     return (
-        <footer className="bg-gray-800 text-white w-full ">
+        <footer className="bg-gray-800 text-white w-full drop-shadow-[20px_10px_20px_rgba(0,0,0,1)] ">
             <div className="quick-acess lg:flex grid text-center lg:text-left gap-14 px-10 py-5 ">
             <ul className='flex-1'>
                     <h1 className='font-semibold text-xl'>About</h1>
-                    <p className='font-light my-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    <p className='font-light my-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit.
                          Ut nesciunt quo iste eum, et velit odio veniam nisi rem incidunt ducimus ex ipsum magnam,
                          blanditiis quae neque cum sequi impedit.
                     </p>
+                    <a href="#backtop" className='my-3 font-semibold text-gray-300'>Back to Top</a>
                 </ul>
                 <ul className='flex-1 grid font-thin gap-2'>
                     <h1 className='font-semibold text-xl'>Quick access</h1>
@@ -36,7 +37,7 @@ const Footer = () => {
                     <Link className='hover:text-red-600  ml-1'>
                         <li>Store</li>
                     </Link>
-                    <Link className='hover:text-red-600  ml-1'>
+                    <Link to={"/Category"} className='hover:text-red-600  ml-1'>
                         <li>Category</li>
                     </Link> 
                     <Link className='hover:text-red-600 ml-1'>

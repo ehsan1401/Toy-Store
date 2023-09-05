@@ -93,7 +93,7 @@ const Home = () => {
             <h1 className="font-bold text-4xl pl-14 pt-6 text-gray-50"><span className="drop-shadow-[-3px_3px_2px_rgba(0,0,0,0.3)]">Special Offers</span></h1>
             <div className="lg:flex grid">
                     <div className="w-1/3 h-auto relative hidden lg:flex">
-                        <div className="h-1/3 flex justify-center items-center font-thin text-2xl text-gray-600 pl-5"> {timerComponents.length ? timerComponents : <span className="text-red-700 font-semibold text-3xl">Special offer has ended! </span>}</div>
+                        <div className="h-1/3 flex justify-center items-center font-thin text-2xl text-gray-600 pl-10"> {timerComponents.length ? timerComponents : <span className="text-red-700 font-semibold text-3xl">Special offer has ended! </span>}</div>
                         <img src="./img/timer.png" className="w-full h-auto absolute bottom-0"/>
                     </div>
                     <div className="offers lg:w-2/3 w-full h-full pb-5 px-5">
@@ -114,15 +114,15 @@ const Home = () => {
             </div>
             <div className="h-12 bg-gradient-to-b from-yellow-400 to-gray-50"></div>   
             <div className="Categorys min-h-screen p-10">
-                <div className="Category h-full bg-gray-50 grid grid-flow-col grid-rows-2 gap-10 p-5">
+                <div className="Category h-full bg-gray-50 flex flex-wrap md:grid grid-flow-col lg:grid-rows-2 mg:gride-rows-1 gap-10 p-5">
                     {Category.slice(0 , 4).map(item=>{
                        return(
                         <div className="item-container relative h-full" key={item.Code}>
                             <Link to={'/Category/' + item.Code}>
-                                <div className="item w-auto flex h-full py-10 px-3 ">
-                                    <img src={item.MainImageCategoryURL} className="w-auto h-64 float-left absolute bottom-12" />
+                                <div className="item w-auto flex md:flex-row items-center flex-col h-full md:py-10 py-3 px-3 ">
+                                    <img src={item.MainImageCategoryURL} className="w-auto h-64 float-left md:absolute bottom-12" />
                                     <div className="w-full bg-gray-100 hover:bg-gray-300 border-2 border-gray-400 border-dashed h-full rounded-2xl  flex justify-center flex-col">
-                                        <div className="ml-80 py-2 px-3 ">
+                                        <div className="md:ml-80 ml-0 py-2 px-3 ">
                                             <h3 className="font-bold text-2xl pt-3">{ item.name }</h3><br />
                                             <p className="font-thin">{item.ShortInfo}</p><br />
                                         </div>
@@ -134,8 +134,8 @@ const Home = () => {
                        )
                     })}
                 </div>
-                <Link to={"/Category"} className="flex justify-center items-center p-5 hover:translate-x-5 ">
-                    <p className="font-bold text-gray-800 hover:text-gray-600">Show More Categorys <DoubleArrowIcon /></p>
+                <Link to={"/Category"} className="flex justify-center items-center p-5 hover:translate-x-5 transition duration-500 hover:text-gray-600 ">
+                    <p className="font-bold text-gray-800 ">Show More Categorys <DoubleArrowIcon /></p>
                 </Link>
 
             </div>
