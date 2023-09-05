@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import Card from '../Cards/firstCard';
 import SecondCard from '../Cards/SecondCard';
 import Toys from '../../DB/Toys.json';
+import Category from '../../DB/Category.json';
+import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 
 
 const Home = () => {
@@ -50,7 +52,7 @@ const Home = () => {
                     <img src="./img/main-page.webp" className="lg:w-2/3 w-0"/>
                 </div>
                 <div className="info lg:w-1/2 w-full justify-center items-center flex flex-col">
-                    <h1 className="text-8xl font-extrabold bg-gradient-to-tr from-blue-700 to-blue-300 text-transparent bg-clip-text py-5 drop-shadow-[0_5px_2px_rgba(51,51,153,0.8)]">Toy Store</h1>
+                    <h1 className="sm:text-8xl text-6xl font-extrabold bg-gradient-to-tr from-blue-700 to-blue-300 text-transparent bg-clip-text py-5 drop-shadow-[0_5px_2px_rgba(51,51,153,0.8)]">Toy Store</h1>
                     <p className="text-center font-light text-lg my-2 text-white drop-shadow-[0_0px_3px_rgba(0,0,0,0.8)]">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                     <div className="my-5">
                         <Link className="px-5 py-3 bg-blue-600 text-white font-bold outline-dashed outline-amber-800 mx-2 rounded-xl hover:bg-blue-900 ">Toys</Link>
@@ -96,7 +98,7 @@ const Home = () => {
                     </div>
                     <div className="offers lg:w-2/3 w-full h-full pb-5 px-5">
                         <Link to={"*"} className=" pt-3 pb-5 lg:px-5 px-2 float-right hover:underline font-semibold lg:text-lg text-base text-blue-600">See more offers...</Link>
-                        <div className="flex flex-row flex-wrap w-full h-full gap-3">
+                        <div className="flex flex-row flex-wrap lg:flex-nowrap  w-full h-full gap-3">
                             {Toys.slice(0 , 4).map(toy=>{
                                 return(
                                     <Link to={"/toy/" + toy.Code}>
@@ -110,7 +112,34 @@ const Home = () => {
                     </div>
             </div>
             </div>
-            <div className="h-12 bg-gradient-to-b from-yellow-400 to-gray-50">
+            <div className="h-12 bg-gradient-to-b from-yellow-400 to-gray-50"></div>   
+            <div className="Categorys min-h-screen p-10">
+                <div className="Category h-full bg-gray-50 grid grid-flow-col grid-rows-2 gap-10 p-5">
+                    {Category.slice(0 , 4).map(item=>{
+                       return(
+                        <div className="item-container relative h-full" key={item.Code}>
+                            <Link to={'/Category/' + item.Code}>
+                                <div className="item w-auto flex h-full py-10 px-3 ">
+                                    <img src={item.MainImageCategoryURL} className="w-auto h-64 float-left absolute bottom-12" />
+                                    <div className="w-full bg-gray-100 hover:bg-gray-300 border-2 border-gray-400 border-dashed h-full rounded-2xl  flex justify-center flex-col">
+                                        <div className="ml-80 py-2 px-3 ">
+                                            <h3 className="font-bold text-2xl pt-3">{ item.name }</h3><br />
+                                            <p className="font-thin">{item.ShortInfo}</p><br />
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </Link>
+                        </div>
+                       )
+                    })}
+                </div>
+                <Link to={"/Category"} className="flex justify-center items-center p-5 hover:translate-x-5 ">
+                    <p className="font-bold text-gray-800 hover:text-gray-600">Show More Categorys <DoubleArrowIcon /></p>
+                </Link>
+
+            </div>
+            <div className="h-screen bg-lime-600">
 
             </div>
 
@@ -130,7 +159,7 @@ const Home = () => {
 
 
 
-            <div className="? h-96 relative">
+            <div className="? h-32 w-full relative">
                 <div className="absolute bottom-0">
                     <img src="./img/minionLine.png" className=""/>
                 </div>

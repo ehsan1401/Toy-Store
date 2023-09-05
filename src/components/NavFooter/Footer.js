@@ -18,10 +18,10 @@ const Footer = () => {
                 </ul>
                 <ul className='flex-1 grid font-thin gap-2'>
                     <h1 className='font-semibold text-xl'>Quick access</h1>
-                    <Link className='hover:text-red-600 ml-1'>
+                    <Link to={"/"} className='hover:text-red-600 ml-1'>
                         <li>Home</li>
                     </Link>
-                    <Link className='hover:text-red-600 ml-1'>
+                    <Link to={"/Login"} className='hover:text-red-600 ml-1'>
                         <li>Account</li>
                     </Link >                    
                     <Link className='hover:text-red-600 ml-1'>
@@ -36,31 +36,31 @@ const Footer = () => {
                     <Link className='hover:text-red-600  ml-1'>
                         <li>Store</li>
                     </Link>
+                    <Link className='hover:text-red-600  ml-1'>
+                        <li>Category</li>
+                    </Link> 
                     <Link className='hover:text-red-600 ml-1'>
                         <li>Best Sellers</li>
                     </Link>
                     <Link className='hover:text-red-600  ml-1'>
-                        <li>special offers</li>
-                    </Link>                    
-                    <Link className='hover:text-red-600  ml-1'>
-                        <li>Figure Action</li>
-                    </Link>                    
+                        <li>Special offers</li>
+                    </Link>                                       
                 </ul>
                 <ul className='social-network grid my-5 '>
                     <div>
                         <IconButton aria-label="Example" className='scale-150 '>
-                            <a href=""><FacebookIcon className='m-2 hover:text-gray-500 text-gray-50' /></a>
+                            <a href="https://www.facebook.com"><FacebookIcon className='m-2 hover:text-gray-500 text-gray-50' /></a>
                         </IconButton>
                         <IconButton aria-label="Example"  className='scale-150'>
-                            <a href=""><InstagramIcon className='m-2 hover:text-gray-500 text-gray-50' /></a>
+                            <a href="https://www.instagram.com"><InstagramIcon className='m-2 hover:text-gray-500 text-gray-50' /></a>
                         </IconButton>
                     </div>
                     <div>
                         <IconButton aria-label="Example"  className='scale-150'>
-                            <a href=""><TelegramIcon className='m-2 hover:text-gray-500 text-gray-50' /></a>
+                            <a href="https://telegram.org"><TelegramIcon className='m-2 hover:text-gray-500 text-gray-50' /></a>
                         </IconButton>
                         <IconButton aria-label="Example"  className='scale-150'>
-                            <a href=""><LinkedInIcon className='m-2 hover:text-gray-500 text-gray-50' /></a>
+                            <a href="https://www.linkedin.com"><LinkedInIcon className='m-2 hover:text-gray-500 text-gray-50' /></a>
                         </IconButton>
                     </div>
                 </ul>

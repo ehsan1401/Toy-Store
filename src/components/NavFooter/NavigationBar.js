@@ -14,11 +14,16 @@ import MenuItem from '@mui/material/MenuItem';
 import { orange , white } from '@mui/material/colors';
 import { Link } from 'react-router-dom';
 import Search from '../NavFooter/SearchBar';
+import { useState } from 'react';
+import { setRef } from '@mui/material';
 
-const pages = ['Home', 'Store', 'Games'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = ['Home' , 'Store' , 'Games'];
+const settings = ['Profile', 'Dashboard', 'Cart', 'Logout'];
+const NotLogin = ['Login' , 'Register' ];
+
 
 function ResponsiveAppBar() {
+  const [login , setLogin] = useState(false);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -38,6 +43,7 @@ function ResponsiveAppBar() {
   };
 
   return (
+
     <nav>
         <AppBar position="static">
         <Container maxWidth="xl" className='bg-gray-800'>
@@ -104,10 +110,10 @@ function ResponsiveAppBar() {
                       Toy Store
                   </Typography>
               </div>
-            <Box sx={{ flexGrow: 0 }} className="pl-3">
+              {login && <Box sx={{ flexGrow: 0 }} className="pl-3">
               <Tooltip title="Account">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar src="/static/images/avatar/2.jpg" />
+                  <Avatar src="./img/User-profile.jpg" />
                 </IconButton>
               </Tooltip>
               <Menu
@@ -129,13 +135,47 @@ function ResponsiveAppBar() {
               >
                 {settings.map((setting) => (
                   <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                    <Link to={"*"}>
+                    <Link to={"/" + setting}>
                       <Typography textAlign="center">{setting} </Typography>
                     </Link>
                   </MenuItem>
                 ))}
               </Menu>
-            </Box>
+              </Box>}
+
+              {!login && <Box sx={{ flexGrow: 0 }} className="pl-3">
+              <Tooltip title="Register">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <Avatar/>
+                </IconButton>
+              </Tooltip>
+              <Menu
+                sx={{ mt: '45px'}}
+                id="menu-appbar"
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
+                
+              >
+                {NotLogin.map((setting) => (
+                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                    <Link to={"/" + setting}>
+                      <Typography textAlign="center">{setting} </Typography>
+                    </Link>
+                  </MenuItem>
+                ))}
+              </Menu>
+              </Box>}
+
           </Toolbar>
         </Container>
       </AppBar>

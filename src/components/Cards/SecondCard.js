@@ -9,7 +9,6 @@ import { orange , grey } from '@mui/material/colors';
 export default function ActionAreaCard({ ops , text , imageURL , beforePrice ,price ,symbol }) {
     {
         imageURL.slice(0,1).map(img=>{
-            console.log(img)
         })
     }
   return (

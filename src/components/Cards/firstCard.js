@@ -11,7 +11,6 @@ import { orange , grey } from '@mui/material/colors';
 export default function MediaCard({ ops , text , imageURL}) {
     {
         imageURL.slice(0,1).map(img=>{
-            console.log(img)
         })
     }
     // const image = imageURL.toyImages.slice(0,0).map((img)=>{img});

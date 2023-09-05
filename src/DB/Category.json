@@ -1,0 +1,49 @@
+[
+    {
+        "name":"Figure Action",
+        "ShortInfo":"An action figure is a poseable character model figure made most commonly of plastic, and often based upon characters from a film, comic book, military, ...",
+        "Code":1,
+        "MainImageCategoryURL":"./img/Category/Figure-Action.png"
+    },{
+        "name":"Construction toys",
+        "ShortInfo":"Let's start construction!",
+        "Code":9,
+        "MainImageCategoryURL":"./img/Category/Construction-toys.png"
+
+    },{
+        "name":"Montessori toys",
+        "ShortInfo":"A Montessori toy is one that stimulates learning by encouraging kids to experiment.",
+        "Code":2,
+        "MainImageCategoryURL":"./img/Category/Montessori-toys.png"
+    },{
+        "name":"Book and Magazine",
+        "ShortInfo":"Manga, comics, magazines and many other things...",
+        "Code":3,
+        "MainImageCategoryURL":"./img/Category/Book-and-Magazine.jpg"
+    },{
+        "name":"Role play toys",
+        "ShortInfo":"Our pretend play range is full of wooden toys that are fun, and that also encourage children to develop their social and speech skills through play.",
+        "Code":4,
+        "MainImageCategoryURL":"./img/Category/Role-play-toys.png"
+    },{
+        "name":"Musical",
+        "ShortInfo":"Playing with musical toys helps to teach patience and persistence.",
+        "Code":5,
+        "MainImageCategoryURL":"./img/Category/Musical.png"
+    },{
+        "name":"Movement toys",
+        "ShortInfo":"movement toys require and encourage big movements.",
+        "Code":6,
+        "MainImageCategoryURL":"./img/Category/Movement-toys.png"
+    },{
+        "name":"Small world toys",
+        "ShortInfo":"Doll's houses, play farms and other settings inspired by the real world are classic examples of small world toys.",
+        "Code":7,
+        "MainImageCategoryURL":"./img/Category/Small-world-toys.png"
+    },{
+        "name":"Wooden toys",
+        "ShortInfo":"A wooden toy is a toy constructed primarily from wood and wood products. ",
+        "Code":8,
+        "MainImageCategoryURL":"./img/Category/Wooden-toys.png"
+    }
+]
