@@ -124,7 +124,7 @@ const Home = () => {
                                     <div className="w-full bg-gray-100 hover:bg-gray-300 border-2 border-gray-400 border-dashed h-full rounded-2xl  flex justify-center flex-col">
                                         <div className="md:ml-80 ml-0 py-2 px-3 ">
                                             <h3 className="font-bold text-2xl pt-3">{ item.name }</h3><br />
-                                            <p className="font-thin">{item.ShortInfo}</p><br />
+                                            <p className="font-thin pl-2">{item.ShortInfo}</p><br />
                                         </div>
                                     </div>
                                     

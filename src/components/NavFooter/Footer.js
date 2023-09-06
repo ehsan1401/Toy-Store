@@ -25,7 +25,7 @@ const Footer = () => {
                     <Link to={"/Login"} className='hover:text-red-600 ml-1'>
                         <li>Account</li>
                     </Link >                    
-                    <Link className='hover:text-red-600 ml-1'>
+                    <Link to={"/ContactUs"} className='hover:text-red-600 ml-1'>
                         <li>Contact us</li>
                     </Link>                    
                     <Link className='hover:text-red-600 ml-1'>
