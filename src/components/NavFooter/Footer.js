@@ -28,7 +28,7 @@ const Footer = () => {
                     <Link to={"/ContactUs"} className='hover:text-red-600 ml-1'>
                         <li>Contact us</li>
                     </Link>                    
-                    <Link className='hover:text-red-600 ml-1'>
+                    <Link to={"/PrivacyPolicy"} className='hover:text-red-600 ml-1'>
                         <li>Privacy Policy</li>
                     </Link>
                 </ul>

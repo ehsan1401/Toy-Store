@@ -7,6 +7,8 @@ import Footer from './components/NavFooter/Footer';
 import Register from './components/Account/Register';
 import Login from './components/Account/Login';
 import ContactUs from './components/HomePage/ContactUs';
+import PrivacyPolicy from './components/HomePage/PrivacyPolicy';
+import Category from './components/Store/Category';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <Route path="/Register" element={<Register />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/ContactUs" element={<ContactUs/>} />
+          <Route path="/PrivacyPolicy" element={<PrivacyPolicy/>} />
+          <Route path='/Category' element={<Category/>}/>
 
 
           <Route path="*" element={<NotFounded />} />  

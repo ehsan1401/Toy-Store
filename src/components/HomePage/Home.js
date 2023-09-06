@@ -113,6 +113,8 @@ const Home = () => {
             </div>
             </div>
             <div className="h-12 bg-gradient-to-b from-yellow-400 to-gray-50"></div>   
+            
+            
             <div className="Categorys min-h-screen p-10">
                 <div className="Category h-full bg-gray-50 flex flex-wrap md:grid grid-flow-col lg:grid-rows-2 mg:gride-rows-1 gap-10 p-5">
                     {Category.slice(0 , 4).map(item=>{
