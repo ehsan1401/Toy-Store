@@ -49,7 +49,7 @@ function ResponsiveAppBar() {
         <AppBar position="static">
         <Container maxWidth="xl" className='bg-gray-800'>
           <Toolbar disableGutters>
-            <img src="./img/icon.webp" className='w-12 mr-5 my-3 hidden md:flex' />
+            <img src="/img/icon.webp" className='w-12 mr-5 my-3 hidden md:flex' />
             <Box sx={{ flexGrow: 0, display: { xs: 'flex', md: 'none' } }} className="pr-3">
               <IconButton
                 size="large"

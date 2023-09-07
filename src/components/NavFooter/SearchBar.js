@@ -1,26 +1,5 @@
-// import { Margin } from '@mui/icons-material';
-import Data from '../../DB/Toys.json';
-// import Autocomplete from '@mui/material/Autocomplete';
-// import TextField from '@mui/material/TextField';
-// import * as React from 'react';
-// import { useAutocomplete } from '@mui/base/useAutocomplete';
-// import { styled } from '@mui/system';
 
-// export default function ComboBox() {
-//   const bookname = Data;
-//   return (
-//     <div className='bg-white text-white'>
-//         <Autocomplete
-//             disablePortal
-//             id="combo-box-demo"
-//             options={bookname}
-//             getOptionLabel={(option) => option.title}
-//             sx={{ width: 300}}
-//             renderInput={(params) => <TextField {...params} label="Search for Toys" />}
-//         />
-//     </div>
-//   );
-// }
+import Data from '../../DB/Toys.json';
 import * as React from 'react';
 import { useAutocomplete } from '@mui/base/useAutocomplete';
 import { styled } from '@mui/system';
@@ -51,7 +30,7 @@ const Listbox = styled('ul')(({ theme }) => ({
   color:'black',
   borderRadius: 10 ,
   margin: 0,
-  fontSize:20,
+  fontSize:16,
   fontFamily:'cursive',
   zIndex: 1,
   position: 'absolute',

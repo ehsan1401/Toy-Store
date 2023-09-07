@@ -12,7 +12,7 @@ export default function ActionAreaCard({ ops , text , imageURL , beforePrice ,pr
         })
     }
   return (
-    <Card sx={{ maxWidth: 300 , Height: 600 ,boxSizing: 'border-box' , background:grey[100] }}>
+    <Card sx={{ maxWidth: 250 , minWidth:220 , Height: 700 ,boxSizing: 'border-box' , background:grey[100] }}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -24,9 +24,9 @@ export default function ActionAreaCard({ ops , text , imageURL , beforePrice ,pr
           alt={ops}
         />
         <CardContent
-            sx={{ height: 160}}
+            sx={{ height: 200}}
         >
-          <Typography gutterBottom variant="h6" component="div" sx={{ height: 28}} >
+          <Typography gutterBottom variant="h6" component="div" className='h-auto' >
             {ops}
           </Typography>
           <div className='border-2 border-dashed border-gray-400 h-20 rounded-2xl bg-white'>

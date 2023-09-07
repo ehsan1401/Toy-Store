@@ -8,14 +8,14 @@ import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
 import { orange , grey } from '@mui/material/colors';
 
-export default function MediaCard({ ops , text , imageURL}) {
+export default function MediaCard({ ops , text , imageURL , Code}) {
     {
         imageURL.slice(0,1).map(img=>{
         })
     }
     // const image = imageURL.toyImages.slice(0,0).map((img)=>{img});
   return (
-    <Card sx={{ maxWidth: 300 , Height: 600 ,boxSizing: 'border-box' , background:grey[300] }} >
+    <Card sx={{ maxWidth: 300 , Height: 700 ,boxSizing: 'border-box' , background:grey[300] }} >
       <CardMedia
         sx={{ height: 140 , paddingY: 20 }}
         image={    
@@ -24,7 +24,7 @@ export default function MediaCard({ ops , text , imageURL}) {
         title={ops}
       />
       <CardContent
-        sx={{ height: 140}}
+        sx={{ height: 200}}
       >
         <Typography gutterBottom variant="h5" component="div">
           {ops}
@@ -34,8 +34,8 @@ export default function MediaCard({ ops , text , imageURL}) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Link to={"*"}><Button size="small" variant='outlined' color='success'>Share</Button></Link>
-        <Link to={"*"}><Button size="small" variant='contained' color='warning'>More</Button></Link>
+        <Link to={"/toy/" + Code }><Button size="small" variant='outlined' color='success'>Share</Button></Link>
+        <Link to={"/toy/" + Code }><Button size="small" variant='contained' color='warning'>More</Button></Link>
       </CardActions>
     </Card>
   );

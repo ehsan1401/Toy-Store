@@ -37,10 +37,10 @@ const Footer = () => {
                     <Link className='hover:text-red-600  ml-1'>
                         <li>Store</li>
                     </Link>
-                    <Link to={"/Category"} className='hover:text-red-600  ml-1'>
+                    <Link to={"/AllCategory"} className='hover:text-red-600  ml-1'>
                         <li>Category</li>
                     </Link> 
-                    <Link className='hover:text-red-600 ml-1'>
+                    <Link to={"/BestSellers"} className='hover:text-red-600 ml-1'>
                         <li>Best Sellers</li>
                     </Link>
                     <Link className='hover:text-red-600  ml-1'>

@@ -62,13 +62,13 @@ const Home = () => {
             </header>
             <div className="pop-products md:h-2/3 h-full flex pb-12">
                     <div className="grid w-full">
-                        <h1 className="font-bold text-4xl pl-14 pt-4 text-gray-600"><span className="drop-shadow-[-3px_3px_2px_rgba(0,0,0,0.3)]">Best Sellers</span> <span className=" text-orange-700 font-bold text-lg float-right mt-5 pr-10 hover:underline"><Link to={"*"}>See More...</Link></span></h1>
+                        <h1 className="font-bold text-4xl pl-14 pt-4 text-gray-600"><span className="drop-shadow-[-3px_3px_2px_rgba(0,0,0,0.3)]">Best Sellers</span> <span className=" text-orange-700 font-bold text-lg float-right mt-5 pr-10 hover:underline"><Link to={"/BestSellers"}>See More...</Link></span></h1>
                         <div className="">
                             <div className="hidden sm:grid md:max-w-4/5 w-full grid-flow-row grid-cols-1 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-4 px-10 pt-5 gap-4">
-                                {Toys.slice(0 , 4).map(toy=>{
+                                {Toys.sort((a, b) => (a.TotalSell < b.TotalSell) ? 1 : -1).slice(0 , 4).map(toy=>{
                                     return(
                                         <div className="" key={toy.Code}>
-                                            <Card ops={toy.title} text={toy.ShortDescription}imageURL={toy.toyImages} />
+                                            <Card ops={toy.title} text={toy.ShortDescription}imageURL={toy.toyImages} Code={toy.Code} />
                                         </div>
                                     )
                                 })}
@@ -103,7 +103,7 @@ const Home = () => {
                                 return(
                                     <Link to={"/toy/" + toy.Code}>
                                         <div className="cards flex-1" key={toy.Code}>
-                                            <SecondCard ops={toy.title} text={toy.ShortDescription} imageURL={toy.toyImages} beforePrice ={toy.PriceBeforeOff} price={toy.Price} symbol={toy.Symbol} />
+                                            <SecondCard className='flex-1' ops={toy.title} text={toy.ShortDescription} imageURL={toy.toyImages} beforePrice ={toy.PriceBeforeOff} price={toy.Price} symbol={toy.Symbol} />
                                         </div>
                                     </Link>
                                 )
@@ -119,9 +119,9 @@ const Home = () => {
                 <div className="Category h-full bg-gray-50 flex flex-wrap md:grid grid-flow-col lg:grid-rows-2 mg:gride-rows-1 gap-10 p-5">
                     {Category.slice(0 , 4).map(item=>{
                        return(
-                        <div className="item-container relative h-full" key={item.Code}>
-                            <Link to={'/Category/' + item.Code}>
-                                <div className="item w-auto flex md:flex-row items-center flex-col h-full md:py-10 py-3 px-3 ">
+                        <div className="item-container relative w-full h-full" key={item.Code}>
+                            <Link to={'/Category/' + item.name.replace(/\s/g , "-")}>
+                                <div className="item w-full flex md:flex-row items-center flex-col h-full md:py-10 py-3 px-3 ">
                                     <img src={item.MainImageCategoryURL} className="w-auto h-64 float-left md:absolute bottom-12" />
                                     <div className="w-full bg-gray-100 hover:bg-gray-300 border-2 border-gray-400 border-dashed h-full rounded-2xl  flex justify-center flex-col">
                                         <div className="md:ml-80 ml-0 py-2 px-3 ">
@@ -136,14 +136,14 @@ const Home = () => {
                        )
                     })}
                 </div>
-                <Link to={"/Category"} className="flex justify-center items-center p-5 hover:translate-x-5 transition duration-500 hover:text-gray-600 ">
+                <Link to={"/AllCategory"} className="flex justify-center items-center p-5 hover:translate-x-5 transition duration-500 hover:text-gray-600 ">
                     <p className="font-bold text-gray-800 ">Show More Categorys <DoubleArrowIcon /></p>
                 </Link>
 
             </div>
-            <div className="h-screen bg-lime-600">
+            {/* <div className="h-screen bg-lime-600">
 
-            </div>
+            </div> */}
 
 
 

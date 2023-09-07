@@ -5,13 +5,13 @@
         "Code":1,
         "MainImageCategoryURL":"./img/Category/Figure-Action.png"
     },{
-        "name":"Construction toys",
+        "name":"Construction toy",
         "ShortInfo":"Let's start construction!",
         "Code":9,
         "MainImageCategoryURL":"./img/Category/Construction-toys.png"
 
     },{
-        "name":"Montessori toys",
+        "name":"Montessori toy",
         "ShortInfo":"A Montessori toy is one that stimulates learning by encouraging kids to experiment.",
         "Code":2,
         "MainImageCategoryURL":"./img/Category/Montessori-toys.png"
@@ -21,7 +21,7 @@
         "Code":3,
         "MainImageCategoryURL":"./img/Category/Book-and-Magazine.jpg"
     },{
-        "name":"Role play toys",
+        "name":"Role play toy",
         "ShortInfo":"Our pretend play range is full of wooden toys that are fun, and that also encourage children to develop their social and speech skills through play.",
         "Code":4,
         "MainImageCategoryURL":"./img/Category/Role-play-toys.png"
@@ -31,19 +31,39 @@
         "Code":5,
         "MainImageCategoryURL":"./img/Category/Musical.png"
     },{
-        "name":"Movement toys",
+        "name":"Movement toy",
         "ShortInfo":"movement toys require and encourage big movements.",
         "Code":6,
         "MainImageCategoryURL":"./img/Category/Movement-toys.png"
     },{
-        "name":"Small world toys",
+        "name":"Small world toy",
         "ShortInfo":"Doll's houses, play farms and other settings inspired by the real world are classic examples of small world toys.",
         "Code":7,
         "MainImageCategoryURL":"./img/Category/Small-world-toys.png"
     },{
-        "name":"Wooden toys",
+        "name":"Wooden toy",
         "ShortInfo":"A wooden toy is a toy constructed primarily from wood and wood products. ",
         "Code":8,
         "MainImageCategoryURL":"./img/Category/Wooden-toys.png"
+    },{
+        "name":"Lego",
+        "ShortInfo":"LEGO, plastic building-block toys that rose to massive popularity in the mid-20th century.",
+        "Code":10,
+        "MainImageCategoryURL":"./img/Category/Lego.png"
+    },{
+        "name":"Car",
+        "ShortInfo":"Let's Drive Now!",
+        "Code":11,
+        "MainImageCategoryURL":"./img/Category/Cars.png"
+    },{
+        "name":"Apparel",
+        "ShortInfo":"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        "Code":12,
+        "MainImageCategoryURL":"./img/Category/Apparel.png"
+    },{
+        "name":"Bag",
+        "ShortInfo":"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        "Code":13,
+        "MainImageCategoryURL":"./img/Category/Bag.png"
     }
 ]

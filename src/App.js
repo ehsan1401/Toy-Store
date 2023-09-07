@@ -9,6 +9,9 @@ import Login from './components/Account/Login';
 import ContactUs from './components/HomePage/ContactUs';
 import PrivacyPolicy from './components/HomePage/PrivacyPolicy';
 import Category from './components/Store/Category';
+import CategoryItem from './components/Store/CategoryPage';
+
+import BestSellers from './components/Store/BestSellers';
 
 function App() {
   return (
@@ -22,7 +25,11 @@ function App() {
           <Route path="/Login" element={<Login />} />
           <Route path="/ContactUs" element={<ContactUs/>} />
           <Route path="/PrivacyPolicy" element={<PrivacyPolicy/>} />
-          <Route path='/Category' element={<Category/>}/>
+          <Route path='/Category/:Code' element={<CategoryItem/>}/>
+          <Route path='/AllCategory' element={<Category/>}/>
+
+          <Route path='/BestSellers' element={<BestSellers/>}/>
+
 
 
           <Route path="*" element={<NotFounded />} />  
