@@ -44,6 +44,8 @@ const Home = () => {
         );
       });
 
+
+
     return (
         <div className="home-page bg-gray-50 ">
             <header className="w-full h-auto lg:pr-10 py-5 flex bg-gradient-to-r from-orange-500 to-yellow-400">
@@ -55,8 +57,8 @@ const Home = () => {
                     <h1 className="sm:text-8xl text-6xl font-extrabold bg-gradient-to-tr from-blue-700 to-blue-300 text-transparent bg-clip-text py-5 drop-shadow-[0_5px_2px_rgba(51,51,153,0.8)]">Toy Store</h1>
                     <p className="text-center font-light text-lg my-2 text-white drop-shadow-[0_0px_3px_rgba(0,0,0,0.8)]">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                     <div className="my-5">
-                        <Link className="px-5 py-3 bg-blue-600 text-white font-bold outline-dashed outline-amber-800 mx-2 rounded-xl hover:bg-blue-900 ">Toys</Link>
-                        <Link className="px-5 py-3 bg-blue-400 text-white font-bold outline-dashed outline-amber-800 mx-2 rounded-xl hover:bg-blue-900 ">Games</Link>
+                        <Link to={"/Store"} className="px-5 py-3 bg-blue-600 text-white font-bold outline-dashed outline-amber-800 mx-2 rounded-xl hover:bg-blue-900 ">Store</Link>
+                        <Link to={"*"} className="px-5 py-3 bg-blue-400 text-white font-bold outline-dashed outline-amber-800 mx-2 rounded-xl hover:bg-blue-900 ">Games</Link>
                     </div>
                 </div>
             </header>

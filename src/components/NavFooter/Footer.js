@@ -1,4 +1,5 @@
 import {Link} from 'react-router-dom';
+import { useEffect } from 'react';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TelegramIcon from '@mui/icons-material/Telegram';
@@ -6,6 +7,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import IconButton from '@mui/material/IconButton';
 
 const Footer = () => {
+
     return (
         <footer className="bg-gray-800 text-white w-full drop-shadow-[20px_10px_20px_rgba(0,0,0,1)] ">
             <div className="quick-acess lg:flex grid text-center lg:text-left gap-14 px-10 py-5 ">
@@ -34,7 +36,7 @@ const Footer = () => {
                 </ul>
                 <ul className='flex-1 grid font-thin gap-2'>
                     <h1 className='font-semibold text-xl'>Buy Now</h1>
-                    <Link className='hover:text-red-600  ml-1'>
+                    <Link to={"/Store"} className='hover:text-red-600  ml-1'>
                         <li>Store</li>
                     </Link>
                     <Link to={"/AllCategory"} className='hover:text-red-600  ml-1'>
