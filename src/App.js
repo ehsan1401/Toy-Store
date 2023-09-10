@@ -14,6 +14,7 @@ import Store from './components/Store/StorePages/Store';
 import Ages from './components/Store/StorePages/Ages';
 import Scroll from './components/ScrollToTop';
 import BestSellers from './components/Store/BestSellers';
+import ToyPage from './components/ToyPage';
 
 function App() {
   return (
@@ -33,6 +34,8 @@ function App() {
           <Route path='/Store' element={<Store />} />
           <Route path='/BestSellers' element={<BestSellers/>}/>
           <Route path='/Store/Ages/:rate' element={<Ages/>}/>
+          <Route path='/toy/:Code' element={<ToyPage/>}/>
+
 
 
 

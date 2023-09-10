@@ -6,7 +6,7 @@ const NotFounded = () => {
     return (
         <div className="bg-gray-50 text-center" >
             <div className="md:h-2/3 h-full p-10 md:flex grid">
-                <img src="/img/Not-Founded.webp" className="md:w-1/2 w-full h-full" />
+                <img src="/img/Not-Founded.png" className="md:w-1/2 w-full h-full" />
                 <div className="info-details flex flex-col justify-center items-center md:w-1/2 w-full">
                     <h1 className="bg-clip-text text-transparent font-bold text-8xl py-5 bg-gradient-to-r from-orange-400 to-lime-400 ">Oppps...</h1>
                     <p className="text-2xl  font-light">We did not find the page you were looking for</p>

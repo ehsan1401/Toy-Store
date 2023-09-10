@@ -6,6 +6,7 @@ const Category = () => {
     return (
         <div>
             <div className="Category h-full bg-gray-300 grid gap-10 px-10 pt-5 pb-20">
+                <h1 className='font-bold text-4xl text-gray-700 pl-10 py-3 '>Categories</h1>
                     {Data.map(item=>{
                        return(
                         <div className="item-container relative h-full my-8" key={item.Code}>

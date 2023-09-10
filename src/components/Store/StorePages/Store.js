@@ -1,12 +1,10 @@
 import {Link} from 'react-router-dom'
-import Ages from './Ages';
-import Toys from '../../../DB/Toys.json';
 import RequestQuoteIcon from '@mui/icons-material/RequestQuote';
+import Toys from '../../../DB/Toys.json';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { grey } from '@mui/material/colors';
 import { useState } from 'react';
 import Categorys from '../../../DB/Category.json';
 
@@ -79,7 +77,7 @@ const Store = () => {
             <div className=' rounded-2xl bg-opacity-25 bg-gray-50 relative overflow-hidden'>
                 <img src="/img/Store2.png" className='absolute right-10 w-48 hidden lg:inline'  />
                 <div className=" px-2 py-5 md:gap-6 gap-3 text-center h-auto flex justify-center">
-                    <Link to={"/Store/Ages/" + Age[0]} className='px-5 py-8 bg-blue-300 border-2 border-gray-50 border-dashed rounded-full font-semibold text-white font-lg hover:hue-rotate-180 transition-all duration-700 bg-gradient-to-tr from-green-600 to-blue-600' >
+                    <Link to={"/Store/Ages/" + Age[0]} className='px-5 py-8 bg-blue-300 hover:hue-rotate-180 border-2 border-gray-50 border-dashed rounded-full font-semibold text-white font-lg  transition-all duration-700 bg-gradient-to-tr from-green-600 to-blue-600' >
                         <p>Babies <br /> (1-12 Month)</p>
                     </Link>
                     <Link to={"/Store/Ages/" + Age[1]} className='px-5 py-8 bg-blue-300 border-2 border-gray-50 border-dashed rounded-full font-semibold text-white font-lg hover:hue-rotate-180 transition-all duration-700 bg-gradient-to-tr from-blue-500 to-violet-500' >

@@ -14,14 +14,15 @@
         "PriceBeforeOff":"30.93",
         "SellinthisMonth": 150,
         "SellinthisWeek": 4,
-        "TotalSell": 112
+        "TotalSell": 112,
+        "supply":145
 
     },{
         "Code":2,
         "toyName" : "Hatsune Miku Guitar Shaped Shoulder Bag",
-        "title":"Hatsune Miku",
+        "title":"Hatsune Miku Guitar",
         "Brand": "Unknown",
-        "toyImages" : ["/img/Toys/Hatsune-Miku-Guitar-Shaped-Shoulder-Bag/01.jpg","/img/Toys/Hatsune-Miku-Guitar-Shaped-Shoulder-Bag/02.jpg","/img/Toys/Hatsune-Miku-Guitar-Shaped-Shoulder-Bag/03.jpg","./img/Toys/Hatsune-Miku-Guitar-Shaped-Shoulder-Bag/04.jpg"],
+        "toyImages" : ["/img/Toys/Hatsune-Miku-Guitar-Shaped-Shoulder-Bag/01.jpg","/img/Toys/Hatsune-Miku-Guitar-Shaped-Shoulder-Bag/02.jpg","/img/Toys/Hatsune-Miku-Guitar-Shaped-Shoulder-Bag/03.jpg","/img/Toys/Hatsune-Miku-Guitar-Shaped-Shoulder-Bag/04.jpg"],
         "Description":"Once upon a digital realm, I found myself in a vivid dream of sound and colors, surrounded by the mesmerizing melodies of Hatsune Miku. As I strolled along, I imagined the most extraordinary accessory - a guitar-shaped bag inspired by the iconic virtual diva herself! In this dreamy world, the bag was a symphony of style and function. Its elegant curves mimicked the graceful contours of a guitar, adorned with Hatsune Miku inspired details, such as a strap based on Miku's skirt belt, a pick-shaped zipper pull featuring her silhouette, and of course, her iconic '01' adorning the front.",
         "ShortDescription":"Once upon a digital realm, I found myself in a vivid dream of sound and colors, surrounded by the mesmerizing melodies of Hatsune Miku.",
         "Price":"34.02",
@@ -32,7 +33,8 @@
         "PriceBeforeOff":"",
         "SellinthisMonth": 30,
         "SellinthisWeek": 12,
-        "TotalSell": 564
+        "TotalSell": 564,
+        "supply":145
     },{
         "Code":3,
         "toyName" : "Melty Princess Bocchi the Rock! Tenohira Hitori Chan",
@@ -49,7 +51,8 @@
         "PriceBeforeOff":"52.92",
         "SellinthisMonth": 14,
         "SellinthisWeek": 9,
-        "TotalSell": 87
+        "TotalSell": 87,
+        "supply":145
 
     },{
         "Code":4,
@@ -67,7 +70,8 @@
         "PriceBeforeOff":"",
         "SellinthisMonth": 27,
         "SellinthisWeek": 5,
-        "TotalSell": 178
+        "TotalSell": 178,
+        "supply":145
     },{
         "Code":5,
         "toyName" : "Ferrari Twist Scooter With Led Lights - Black",
@@ -84,7 +88,8 @@
         "PriceBeforeOff":"",
         "SellinthisMonth": 7,
         "SellinthisWeek": 34,
-        "TotalSell": 212
+        "TotalSell": 212,
+        "supply":145
     },{
         "Code":6,
         "toyName" : "JCB Movers Excavator",
@@ -101,7 +106,8 @@
         "PriceBeforeOff":"",
         "SellinthisMonth": 30,
         "SellinthisWeek": 144,
-        "TotalSell": 455
+        "TotalSell": 455,
+        "supply":145
     },{
         "Code":7,
         "toyName" : "Hop N Bounce Unicorn",
@@ -118,7 +124,8 @@
         "PriceBeforeOff":"",
         "SellinthisMonth": 485,
         "SellinthisWeek": 20,
-        "TotalSell": 752
+        "TotalSell": 752,
+        "supply":145
     },{
         "Code":8,
         "toyName" : "Soltekkaman Unit 1 Kai",
@@ -135,7 +142,8 @@
         "PriceBeforeOff":"48.94",
         "SellinthisMonth": 102,
         "SellinthisWeek": 1,
-        "TotalSell": 23
+        "TotalSell": 23,
+        "supply":145
     },{
         "Code":9,
         "toyName" : "Iris Inoue illustration by AliosArvin Figure",
@@ -149,10 +157,11 @@
         "Category":["Figure Action"],
         "Ages" :"Young",
 
-        "PriceBeforeOff":"",
+        "PriceBeforeOff":"205.00",
         "SellinthisMonth":102,
         "SellinthisWeek": 82,
-        "TotalSell": 1054
+        "TotalSell": 1054,
+        "supply":""
     },{
         "Code":10,
         "toyName" : "Pokemon Poke Peace Puni Kyun Light Piplup",
@@ -169,7 +178,8 @@
         "PriceBeforeOff":"",
         "SellinthisMonth": 45,
         "SellinthisWeek": 22,
-        "TotalSell": 985
+        "TotalSell": 985,
+        "supply":145
     },{
         "Code":11,
         "toyName" : "Fate/kaleid liner Prisma Illya Illyasviel von Einzbern: Summer Dress ver.",
@@ -186,6 +196,7 @@
         "PriceBeforeOff":"",
         "SellinthisMonth": 13,
         "SellinthisWeek": 3,
-        "TotalSell": 201
+        "TotalSell": 201,
+        "supply":145
     }
 ]
