@@ -10,7 +10,7 @@ import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 const Home = () => {
     const calculateTimeLeft = () => {
         let year = new Date().getFullYear();
-        let difference = +new Date(`09/10/${year}`) - +new Date();
+        let difference = +new Date(`10/10/${year}`) - +new Date();
       
         let timeLeft = {};
       
