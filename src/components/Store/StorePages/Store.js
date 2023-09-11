@@ -97,7 +97,7 @@ const Store = () => {
                 <div className=' h-full w-full md:flex grid gap-5 py-3 px-10 justify-center'>
                     
                     {
-                        Toys.map((toy)=>{
+                        Toys.slice(0 , 4).map((toy)=>{
                             if(toy.PriceBeforeOff){
                                 return(
                                     <Link to={"/toy/" + toy.Code}>
@@ -144,7 +144,7 @@ const Store = () => {
                                         })
                                     }
                             </div>}
-                             {low && <div className=' md:flex flex-wrap grid gap-5 py-3 px-10 justify-center gap-3'>
+                             {low && <div className=' md:flex flex-wrap grid gap-5 py-3 px-10 justify-center'>
                                     {
                                         Toys.sort((a, b) => (Number(a.Price) > Number(b.Price)) ? 1 : -1).map((toy)=>{
                                             counter += 1 ;

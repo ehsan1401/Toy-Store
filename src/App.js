@@ -15,6 +15,7 @@ import Ages from './components/Store/StorePages/Ages';
 import Scroll from './components/ScrollToTop';
 import BestSellers from './components/Store/BestSellers';
 import ToyPage from './components/ToyPage';
+import Offers from './components/Store/Offers';
 
 function App() {
   return (
@@ -35,6 +36,8 @@ function App() {
           <Route path='/BestSellers' element={<BestSellers/>}/>
           <Route path='/Store/Ages/:rate' element={<Ages/>}/>
           <Route path='/toy/:Code' element={<ToyPage/>}/>
+          <Route path='/Offers' element={<Offers/>}/>
+
 
 
 

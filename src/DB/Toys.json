@@ -30,7 +30,7 @@
         "Category":["Apparel","Bag"],
         "Ages" :"Teenager",
 
-        "PriceBeforeOff":"",
+        "PriceBeforeOff":"10",
         "SellinthisMonth": 30,
         "SellinthisWeek": 12,
         "TotalSell": 564,
@@ -52,7 +52,7 @@
         "SellinthisMonth": 14,
         "SellinthisWeek": 9,
         "TotalSell": 87,
-        "supply":145
+        "supply":5
 
     },{
         "Code":4,
@@ -85,7 +85,7 @@
         "Category":["Movement toy"],
         "Ages" :"Child",
 
-        "PriceBeforeOff":"",
+        "PriceBeforeOff":"10",
         "SellinthisMonth": 7,
         "SellinthisWeek": 34,
         "TotalSell": 212,

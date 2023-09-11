@@ -45,7 +45,7 @@ const Footer = () => {
                     <Link to={"/BestSellers"} className='hover:text-red-600 ml-1'>
                         <li>Best Sellers</li>
                     </Link>
-                    <Link className='hover:text-red-600  ml-1'>
+                    <Link to={"/Offers"} className='hover:text-red-600  ml-1'>
                         <li>Special offers</li>
                     </Link>                                       
                 </ul>
