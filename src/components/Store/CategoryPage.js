@@ -63,7 +63,7 @@ const CategoryPage = () => {
                         {
                             toys.slice(firstall,secondall).map((item)=>{
                                 return(
-                                    <Card class="flex-1  " ops={item.title} text={item.ShortDescription} imageURL={item.toyImages} beforePrice ={item.PriceBeforeOff} price={item.Price} symbol={item.Symbol} Code={item.Code} />   
+                                    <Card class="flex-1  " ops={item.title} text={item.ShortDescription} imageURL={item.toyImages} beforePrice ={item.PriceBeforeOff} price={item.Price} symbol={item.Symbol} Code={item.Code} suplly={item.supply} />   
                                 )
                             })
                         }
@@ -78,7 +78,7 @@ const CategoryPage = () => {
                         {
                             toys.sort((a, b) => (a.Code < b.Code) ? 1 : -1).slice(firstall2,secondall2).map((item)=>{
                                 return(
-                                    <Card class="flex-1  " ops={item.title} text={item.ShortDescription} imageURL={item.toyImages} beforePrice ={item.PriceBeforeOff} price={item.Price} symbol={item.Symbol} Code={item.Code} />   
+                                    <Card class="flex-1  " ops={item.title} text={item.ShortDescription} imageURL={item.toyImages} beforePrice ={item.PriceBeforeOff} price={item.Price} symbol={item.Symbol} Code={item.Code} suplly={item.supply} />   
                                 )
                             })
                         }

@@ -1,3 +1,5 @@
+import Context from "../../Context";
+import { useContext } from "react";
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -11,11 +13,11 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import { orange , white } from '@mui/material/colors';
 import { Link } from 'react-router-dom';
 import Search from '../NavFooter/SearchBar';
 import { useState } from 'react';
-import { setRef } from '@mui/material';
+import Switch from '@mui/material/Switch';
+
 
 const pages = ['Home' , 'Store' , 'Games'];
 const settings = ['Profile', 'Dashboard', 'Cart', 'Logout'];
@@ -23,7 +25,10 @@ const NotLogin = ['Login' , 'Register' ];
 
 
 function ResponsiveAppBar() {
-  const [login , setLogin] = useState(false);
+  const {light} = useContext(Context);
+  const {handleLight} = useContext(Context);
+
+  const [login , setLogin] = useState(true);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -82,11 +87,11 @@ function ResponsiveAppBar() {
               >
                 
                 {pages.map((page) => (
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Link to={"/" + page}>
+                  <Link to={"/" + page}>
+                    <MenuItem key={page} onClick={handleCloseNavMenu}>
                       <Typography textAlign="center">{page}</Typography>
-                    </Link>
-                  </MenuItem>
+                    </MenuItem>
+                  </Link>
                 ))}
               </Menu>
             </Box>
@@ -106,15 +111,19 @@ function ResponsiveAppBar() {
               <Search/>
             </Box>
               <div className='m-auto flex flex-1 md:hidden justify-center'>
-                  <img src="./img/icon.webp" className='w-12 mr-5 my-3' />
+                  <img src="/img/icon.webp" className='w-12 mr-5 my-3' />
                   <Typography className='flex justify-center items-center' variant='h6'>
                       Toy Store
                   </Typography>
               </div>
+              <div className="flex">
+                <span className="pt-1 pr-2 font-mono">{light && <p>Light</p>}{!light && <p>Dark</p>}</span>
+                <span><Switch color="warning" onClick={handleLight} /></span>
+              </div>
               {login && <Box sx={{ flexGrow: 0 }} className="pl-3">
               <Tooltip title="Account">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar src="./img/User-profile.jpg" />
+                  <Avatar src="/img/User-profile.jpg" />
                 </IconButton>
               </Tooltip>
               <Menu
@@ -135,11 +144,11 @@ function ResponsiveAppBar() {
                 
               >
                 {settings.map((setting) => (
-                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                    <Link to={"/" + setting}>
-                      <Typography textAlign="center">{setting} </Typography>
-                    </Link>
-                  </MenuItem>
+                  <Link to={"/" + setting}>
+                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                        <Typography textAlign="center">{setting} </Typography>
+                    </MenuItem>
+                  </Link>
                 ))}
               </Menu>
               </Box>}
@@ -168,11 +177,11 @@ function ResponsiveAppBar() {
                 
               >
                 {NotLogin.map((setting) => (
-                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                    <Link to={"/" + setting}>
-                      <Typography textAlign="center">{setting} </Typography>
-                    </Link>
-                  </MenuItem>
+                  <Link to={"/" + setting}>
+                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                        <Typography textAlign="center">{setting} </Typography>
+                    </MenuItem>
+                  </Link>
                 ))}
               </Menu>
               </Box>}

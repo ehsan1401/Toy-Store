@@ -71,7 +71,7 @@ const BestSellers = () => {
                     
                     Toys.sort((a, b) => (a.SellinthisWeek < b.SellinthisWeek) ? 1 : -1).slice(firstw , secondw).map((toy)=>{
                         return(
-                            <Card class="flex-1  " ops={toy.title} text={toy.ShortDescription} imageURL={toy.toyImages} beforePrice ={toy.PriceBeforeOff} price={toy.Price} symbol={toy.Symbol} Code={toy.Code} />
+                            <Card class="flex-1  " ops={toy.title} text={toy.ShortDescription} imageURL={toy.toyImages} beforePrice ={toy.PriceBeforeOff} price={toy.Price} symbol={toy.Symbol} Code={toy.Code} suplly={toy.supply} />
                         )
                     }
                     )
@@ -86,7 +86,7 @@ const BestSellers = () => {
                 {
                     Toys.sort((a, b) => (a.SellinthisMonth < b.SellinthisMonth) ? 1 : -1).slice(firstm , secondm).map((toy)=>{
                         return(
-                            <Card class="flex-1  " ops={toy.title} text={toy.ShortDescription} imageURL={toy.toyImages} beforePrice ={toy.PriceBeforeOff} price={toy.Price} symbol={toy.Symbol} Code={toy.Code} />
+                            <Card class="flex-1  " ops={toy.title} text={toy.ShortDescription} imageURL={toy.toyImages} beforePrice ={toy.PriceBeforeOff} price={toy.Price} symbol={toy.Symbol} Code={toy.Code} suplly={toy.supply} />
                         )
                     }
                     )
@@ -101,7 +101,7 @@ const BestSellers = () => {
                 {
                     Toys.sort((a, b) => (a.TotalSell < b.TotalSell) ? 1 : -1).slice(firstall , secondall).map((toy)=>{
                         return(
-                            <Card class="flex-1  " ops={toy.title} text={toy.ShortDescription} imageURL={toy.toyImages} beforePrice ={toy.PriceBeforeOff} price={toy.Price} symbol={toy.Symbol} Code={toy.Code} />
+                            <Card class="flex-1  " ops={toy.title} text={toy.ShortDescription} imageURL={toy.toyImages} beforePrice ={toy.PriceBeforeOff} price={toy.Price} symbol={toy.Symbol} Code={toy.Code} suplly={toy.supply} />
                         )
                     }
                     )

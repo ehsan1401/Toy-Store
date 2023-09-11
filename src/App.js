@@ -1,4 +1,5 @@
 import './App.css';
+import { TestPorvider } from './Context';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './components/HomePage/Home';
 import Navigation from './components/NavFooter/NavigationBar'
@@ -20,9 +21,10 @@ import Offers from './components/Store/Offers';
 function App() {
   return (
     <div className="App">
+      <TestPorvider>
       <BrowserRouter>
       <Navigation />
-        <Scroll />
+      <Scroll />
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/Home" element={<Home />} />
@@ -37,17 +39,11 @@ function App() {
           <Route path='/Store/Ages/:rate' element={<Ages/>}/>
           <Route path='/toy/:Code' element={<ToyPage/>}/>
           <Route path='/Offers' element={<Offers/>}/>
-
-
-
-
-
-
           <Route path="*" element={<NotFounded />} />  
-
         </Routes>
         <Footer />
       </BrowserRouter>
+      </TestPorvider>
     </div>
   );
 }
