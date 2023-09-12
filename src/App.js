@@ -17,7 +17,9 @@ import Scroll from './components/ScrollToTop';
 import BestSellers from './components/Store/BestSellers';
 import ToyPage from './components/ToyPage';
 import Offers from './components/Store/Offers';
-
+import Logout from './components/Account/Logout';
+import Dashboard from './components/Account/Dashbord';
+import OrderDetails from './components/Account/OrderDetails';
 function App() {
   return (
     <div className="App">
@@ -39,6 +41,9 @@ function App() {
           <Route path='/Store/Ages/:rate' element={<Ages/>}/>
           <Route path='/toy/:Code' element={<ToyPage/>}/>
           <Route path='/Offers' element={<Offers/>}/>
+          <Route path='/Logout' element={<Logout />} />
+          <Route path='/Dashboard' element={<Dashboard />} />
+          <Route path='Dashboard/OrderDetails/:Code' element={<OrderDetails />} />
           <Route path="*" element={<NotFounded />} />  
         </Routes>
         <Footer />

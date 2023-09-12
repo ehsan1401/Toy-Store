@@ -1,5 +1,5 @@
 import Context from "../../Context";
-import { useContext } from "react";
+import { useContext , useEffect } from "react";
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -20,18 +20,19 @@ import Switch from '@mui/material/Switch';
 
 
 const pages = ['Home' , 'Store' , 'Games'];
-const settings = ['Profile', 'Dashboard', 'Cart', 'Logout'];
+const settings = ['Profile', 'Dashboard','Logout'];
 const NotLogin = ['Login' , 'Register' ];
 
 
 function ResponsiveAppBar() {
   const {light} = useContext(Context);
   const {handleLight} = useContext(Context);
+  const {login} = useContext(Context);
 
-  const [login , setLogin] = useState(true);
+  let ops = JSON.parse(localStorage.getItem("user"));
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -48,7 +49,6 @@ function ResponsiveAppBar() {
   };
 
   return (
-
     <nav>
         <p id='backtop'></p>
         <AppBar position="static">
@@ -120,10 +120,10 @@ function ResponsiveAppBar() {
                 <span className="pt-1 pr-2 font-mono">{light && <p>Light</p>}{!light && <p>Dark</p>}</span>
                 <span><Switch color="warning" onClick={handleLight} /></span>
               </div>
-              {login && <Box sx={{ flexGrow: 0 }} className="pl-3">
+              {ops && <Box sx={{ flexGrow: 0 }} className="pl-3">
               <Tooltip title="Account">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar src="/img/User-profile.jpg" />
+                  <Avatar src={ops.UserImageAddress} />
                 </IconButton>
               </Tooltip>
               <Menu
@@ -153,7 +153,7 @@ function ResponsiveAppBar() {
               </Menu>
               </Box>}
 
-              {!login && <Box sx={{ flexGrow: 0 }} className="pl-3">
+              {!ops && <Box sx={{ flexGrow: 0 }} className="pl-3">
               <Tooltip title="Register">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                   <Avatar/>

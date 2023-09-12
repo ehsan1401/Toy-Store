@@ -19,7 +19,6 @@ const Register = () => {
 
     const {light} = useContext(Context);
 
-
     const navigate = useNavigate();
     const [error , setError] = useState("");
     const [sumerror , setSumerror] = useState(false);
@@ -46,14 +45,31 @@ const Register = () => {
         const data = new FormData(e.target);
         const data_info = Object.fromEntries(data.entries());
         users.map((user)=>{
-            if(user.email === data_info.username && user.password === data_info.Password){
-                navigate("/dorost beshe/" + user.userID);
-                
+            if(data_info.username === "Admin@gmail.com" && data_info.Password === "Admin"){
+                if(user.email === "Admin@gmail.com"){
+                    localStorage.setItem("user", JSON.stringify(user))
+                    navigate("/Dashboard");
+                    window.location.reload(false);
+                    // navigate("/Dashboard/" + user.userID);
+
+                }
+            }else{
+
+                if(user.email === data_info.username && user.password === data_info.Password){
+                    localStorage.setItem("user", JSON.stringify(user))
+                    navigate("/Dashboard");
+                    window.location.reload(false);
+                    
+                }
+                else{
+                    setError("User Not Founded!");
+                    setSumerror(true);
+                }
             }
-            else{
-                setError("User Not Founded!");
-                setSumerror(true);
-            }
+
+
+
+
 
         });
 
