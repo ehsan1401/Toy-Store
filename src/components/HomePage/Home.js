@@ -104,7 +104,7 @@ const Home = () => {
                                 <img src="./img/timer.png" className="w-full h-auto absolute bottom-0"/>
                             </div>
                             <div className="offers lg:w-2/3 w-full h-full pb-5 px-5">
-                                <Link to={"*"} className=" pt-3 pb-5 lg:px-5 px-2 float-right hover:underline font-semibold lg:text-lg text-base text-blue-600">See more offers...</Link>
+                                <Link to={"/Offers"} className=" pt-3 pb-5 lg:px-5 px-2 float-right hover:underline font-semibold lg:text-lg text-base text-blue-600">See more offers...</Link>
                                 <div className="flex flex-row flex-wrap lg:flex-nowrap  w-full h-full gap-3">
                                     {Toys.slice(0 , 4).map(toy=>{
                                         return(
@@ -208,7 +208,7 @@ const Home = () => {
                                 <img src="./img/timer.png" className="w-full h-auto absolute bottom-0"/>
                             </div>
                             <div className="offers lg:w-2/3 w-full h-full pb-5 px-5">
-                                <Link to={"*"} className=" pt-3 pb-5 lg:px-5 px-2 float-right hover:underline font-semibold lg:text-lg text-base text-blue-600">See more offers...</Link>
+                                <Link to={"/Offers"} className=" pt-3 pb-5 lg:px-5 px-2 float-right hover:underline font-semibold lg:text-lg text-base text-blue-600">See more offers...</Link>
                                 <div className="flex flex-row flex-wrap lg:flex-nowrap  w-full h-full gap-3">
                                     {Toys.slice(0 , 4).map(toy=>{
                                         return(

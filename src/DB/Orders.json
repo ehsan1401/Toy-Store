@@ -1,6 +1,8 @@
 [
     {
         "OrderID": 78987984545 ,
+        "OrderDate":"11/09/2023",
+        "OrderTime": "20:53",
         "UserID": 5 , 
         "ProductID": 3,
         "ProductNumber": 1 ,
@@ -11,12 +13,15 @@
         "BuyerEmail":"michael.14@gmail.com",
         "SellerName":"Toy Store",
         "Delivery": "3-5 Days",
+        "DeliveryStatus": "",
         "Price" : "48.69",
         "Symbol" : "€"
 
     },
     {
         "OrderID": 8945788 ,
+        "OrderDate":"20/09/2023",
+        "OrderTime": "03:36",
         "UserID": 7 , 
         "ProductID": 9,
         "ProductName":"Iris Inoue illustration by AliosArvin Figure",
@@ -27,11 +32,14 @@
         "BuyerEmail":"ehsan.good1382@gmail.com",
         "SellerName":"Toy Store",
         "Delivery": "3-5 Days",
+        "DeliveryStatus": "",
         "Price" : "180.70",
         "Symbol" : "€"
     },
     {
         "OrderID": 458458 ,
+        "OrderDate":"11/09/2023",
+        "OrderTime": "14:07",
         "UserID": "NotUser" , 
         "ProductID": 11,
         "ProductName":"Fate/kaleid liner Prisma Illya Illyasviel von Einzbern: Summer Dress ver",
@@ -42,6 +50,7 @@
         "BuyerEmail":"tvainio@example.org",
         "SellerName":"Toy Store",
         "Delivery": "3-5 Days",
+        "DeliveryStatus": "Delivered",
         "Price" : "463.04999999999995",
         "Symbol" : "€"
     }
