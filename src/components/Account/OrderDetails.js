@@ -12,7 +12,7 @@ const OrderDetails = () => {
             {Orders.map((order)=>{
                 if(Code == order.OrderID){
                     return(
-                        <div className="h-full w-full grid grid-flow-row grid-cols-3 py-5 px-10 relative">
+                        <div className="h-full w-full grid grid-flow-row lg:grid-cols-3 grid-cols-1 py-5 px-10 relative">
                             <div>
                                 <h1 className="font-bold text-2xl pb-4 text-gray-600">Buyer Info</h1>
                                 <ul className="pl-4">

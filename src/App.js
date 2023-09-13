@@ -20,6 +20,7 @@ import Offers from './components/Store/Offers';
 import Logout from './components/Account/Logout';
 import Dashboard from './components/Account/Dashbord';
 import OrderDetails from './components/Account/OrderDetails';
+import EditeProduct from './components/Account/EditeProduct';
 function App() {
   return (
     <div className="App">
@@ -44,6 +45,8 @@ function App() {
           <Route path='/Logout' element={<Logout />} />
           <Route path='/Dashboard' element={<Dashboard />} />
           <Route path='Dashboard/OrderDetails/:Code' element={<OrderDetails />} />
+          <Route path='Dashboard/EditeProduct/:Code' element={<EditeProduct />} />
+
           <Route path="*" element={<NotFounded />} />  
         </Routes>
         <Footer />
