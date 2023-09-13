@@ -2,7 +2,7 @@ import { useState } from "react";
 import Toys from '../../DB/Toys.json';
 import Orders from '../../DB/Orders.json';
 import Users from '../../DB/users.json';
-
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { Link } from "react-router-dom";
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -14,7 +14,14 @@ import TextField from '@mui/material/TextField';
 import Category from '../../DB/Category.json';
 import { Autocomplete, Avatar } from "@mui/material";
 import { styled } from '@mui/system';
-
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import BookmarksOutlinedIcon from '@mui/icons-material/BookmarksOutlined';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import ShoppingBasketOutlinedIcon from '@mui/icons-material/ShoppingBasketOutlined';
+import IconButton from '@mui/material/IconButton';
+import ModeEditOutlinedIcon from '@mui/icons-material/ModeEditOutlined';
+import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
+import DoneOutlineOutlinedIcon from '@mui/icons-material/DoneOutlineOutlined';
 
 const Dashboard = () => {
     let isAdmin = false;
@@ -24,39 +31,7 @@ const Dashboard = () => {
             isAdmin = true;
         }
     }
-    const [site , setSite] = useState(false);
-    const [orders , setOrders] = useState(true);
-    const [users , setUsers] = useState(false);
-    const [product , setProduct] = useState(false);
     let rowCounter = 0 ;
-    const handleSite = ()=>{
-        setSite(true);
-        setOrders(false);
-        setUsers(false);
-        setProduct(false);
-
-    }
-    const handleOrders = ()=>{
-        setSite(false);
-        setOrders(true);
-        setUsers(false);
-        setProduct(false);
-
-    }
-    const handleUsers = ()=>{
-        setSite(false);
-        setOrders(false);
-        setUsers(true);
-        setProduct(false);
-
-    }
-    const handleProduct = ()=>{
-        setSite(false);
-        setOrders(false);
-        setUsers(false);
-        setProduct(true);
-
-    }
     const Label = styled('label')({
         display: 'inline-flex',
         margin: 20,
@@ -115,6 +90,93 @@ const Dashboard = () => {
         options: Toys,
         getOptionLabel: (option) => option.title,
       });
+
+
+    // Admin state and Functions 
+    const [site , setSite] = useState(false);
+    const [orders , setOrders] = useState(true);
+    const [users , setUsers] = useState(false);
+    const [product , setProduct] = useState(false);
+
+    const handleSite = ()=>{
+        setSite(true);
+        setOrders(false);
+        setUsers(false);
+        setProduct(false);
+
+    }
+    const handleOrders = ()=>{
+        setSite(false);
+        setOrders(true);
+        setUsers(false);
+        setProduct(false);
+
+    }
+    const handleUsers = ()=>{
+        setSite(false);
+        setOrders(false);
+        setUsers(true);
+        setProduct(false);
+
+    }
+    const handleProduct = ()=>{
+        setSite(false);
+        setOrders(false);
+        setUsers(false);
+        setProduct(true);
+
+    }
+
+
+    //   User State and Functions
+    const [profile , setProfile] = useState(false);
+    const [cart , setCart] = useState(false);
+    const [userorders , setUserorders] = useState(false);
+    const [bookmarks , setBookmarks] = useState(false);
+    const [messages , setMessages] = useState(false);
+    const [editeProfile , setEditeProfile] = useState(false);
+    const [showPassword , setShowPassword] = useState(false);
+    let orderCounter = 0;
+
+
+
+    const handleProfile = ()=>{
+        setProfile(true);
+        setCart(false);
+        setUserorders(false);
+        setBookmarks(false);
+        setMessages(false);
+    }
+    const handleCart = ()=>{
+        setProfile(false);
+        setCart(true);
+        setUserorders(false);
+        setBookmarks(false);
+        setMessages(false);
+    }
+    const handleUserorders = ()=>{
+        setProfile(false);
+        setCart(false);
+        setUserorders(true);
+        setBookmarks(false);
+        setMessages(false);
+    }
+    const handleBookmarks = ()=>{
+        setProfile(false);
+        setCart(false);
+        setUserorders(false);
+        setBookmarks(true);
+        setMessages(false);
+    }
+    const handleMessages = ()=>{
+        setProfile(false);
+        setCart(false);
+        setUserorders(false);
+        setBookmarks(false);
+        setMessages(true);
+    }
+
+
 
     return (
         <>
@@ -498,20 +560,122 @@ const Dashboard = () => {
                                 if(user.email === InfoUser.email){
                                     return(
                                         <div className="userPannel w-full flex h-full">
-                                            <div className="pannel w-3/12 h-full border-r-4 border-solid border-gray-500  bg-neutral-300 ">
-                                                <div className="border-b-2 border-neutral-700 border-dashed">
-                                                    {user.UserImageAddress && <Avatar src={user.UserImageAddress} sx={{scale:"1.7"}} className="m-8 hover:scale-125 transition duration-200"/>}
+                                            <div className="pannel w-3/12 h-full border-r-4 border-solid border-gray-500  bg-teal-400 ">
+                                                <div className="border-b-2 border-neutral-700 border-dashed flex w-full ">
+                                                    {user.UserImageAddress && <Avatar src={user.UserImageAddress} sx={{scale:"1.7"}} className="m-8 mr-0 ml-10 hover:scale-125 transition duration-200"/>}
                                                     {!user.UserImageAddress && <Avatar sx={{scale:"1.7"}} className="m-8"/>}
-
+                                                    <div className="w-full h-full flex flex-col justify-center items-center pt-6 text-gray-700 ">
+                                                        <h1 className="font-bold text-4xl">{user.UserName}</h1>
+                                                        <span className="text-sm text-left font-thin">{user.email}</span>
+                                                    </div>
                                                 </div>
                                                 <ul className="">
-                                                    <li><button>Click me</button></li>
-                                                    <li><button>Click me</button></li>
-                                                    <li><button>Click me</button></li>
-                                                    <li><button>Click me</button></li>
+                                                    {
+                                                        !profile && 
+                                                        <li onClick={handleProfile} className="py-5 pl-10 text-lg bg-teal-700 text-gray-100 border-b-2 border-solid border-black font-bold px-3 hover:translate-x-5 hover:rounded-s-2xl hover:rounded-e-2xl hover:bg-teal-100 hover:text-gray-700 cursor-pointer"><AccountCircleOutlinedIcon/><span className="pl-3">Profile</span></li>
+                                                    }
+                                                    {
+                                                        profile &&                                                     <li onClick={handleProfile} className="py-5 pl-10 text-lg bg-teal-900 text-gray-100 border-b-2 border-solid border-black font-bold px-3 hover:translate-x-5 hover:rounded-s-2xl hover:rounded-e-2xl hover:bg-teal-100 hover:text-gray-700 cursor-pointer"><AccountCircleOutlinedIcon/><span className="pl-3">Profile</span></li>
+                                                    }
+                                                    {
+                                                        !cart && 
+                                                        <li onClick={handleCart} className="py-5 pl-10 text-lg bg-teal-700 text-gray-100 border-b-2 border-solid border-black font-bold px-3 hover:translate-x-5 hover:rounded-s-2xl hover:rounded-e-2xl hover:bg-teal-100 hover:text-gray-700 cursor-pointer"><ShoppingBasketOutlinedIcon/><span className="pl-3">Cart</span></li>
+                                                    }{
+                                                        cart && 
+                                                        <li onClick={handleCart} className="py-5 pl-10 text-lg bg-teal-900 text-gray-100 border-b-2 border-solid border-black font-bold px-3 hover:translate-x-5 hover:rounded-s-2xl hover:rounded-e-2xl hover:bg-teal-100 hover:text-gray-700 cursor-pointer"><ShoppingBasketOutlinedIcon/><span className="pl-3">Cart</span></li>
+                                                    }
+                                                    {
+                                                        !userorders && 
+                                                        <li onClick={handleUserorders} className="py-5 pl-10 text-lg bg-teal-700 text-gray-100 border-b-2 border-solid border-black font-bold px-3 hover:translate-x-5 hover:rounded-s-2xl hover:rounded-e-2xl hover:bg-teal-100 hover:text-gray-700 cursor-pointer"><ShoppingCartOutlinedIcon/><span className="pl-3">Orders</span></li>
+                                                    }{
+                                                        userorders && 
+                                                        <li onClick={handleUserorders} className="py-5 pl-10 text-lg bg-teal-900 text-gray-100 border-b-2 border-solid border-black font-bold px-3 hover:translate-x-5 hover:rounded-s-2xl hover:rounded-e-2xl hover:bg-teal-100 hover:text-gray-700 cursor-pointer"><ShoppingCartOutlinedIcon/><span className="pl-3">Orders</span></li>
+                                                    }
+                                                    {
+                                                        !bookmarks && 
+                                                        <li onClick={handleBookmarks} className="py-5 pl-10 text-lg bg-teal-700 text-gray-100 border-b-2 border-solid border-black font-bold px-3 hover:translate-x-5 hover:rounded-s-2xl hover:rounded-e-2xl hover:bg-teal-100 hover:text-gray-700 cursor-pointer"><BookmarksOutlinedIcon/><span className="pl-3">Bookmarks</span></li>
+                                                    }{
+                                                        bookmarks && 
+                                                        <li onClick={handleBookmarks} className="py-5 pl-10 text-lg bg-teal-900 text-gray-100 border-b-2 border-solid border-black font-bold px-3 hover:translate-x-5 hover:rounded-s-2xl hover:rounded-e-2xl hover:bg-teal-100 hover:text-gray-700 cursor-pointer"><BookmarksOutlinedIcon/><span className="pl-3">Bookmarks</span></li>
+                                                    }
+                                                    {
+                                                        !messages && 
+                                                        <li onClick={handleMessages} className="py-5 pl-10 text-lg bg-teal-700 text-gray-100 border-b-2 border-solid border-black font-bold px-3 hover:translate-x-5 hover:rounded-s-2xl hover:rounded-e-2xl hover:bg-teal-100 hover:text-gray-700 cursor-pointer"><EmailOutlinedIcon/><span className="pl-3">Messages</span></li>
+                                                    }{
+                                                        messages && 
+                                                        <li onClick={handleMessages} className="py-5 pl-10 text-lg bg-teal-900 text-gray-100 border-b-2 border-solid border-black font-bold px-3 hover:translate-x-5 hover:rounded-s-2xl hover:rounded-e-2xl hover:bg-teal-100 hover:text-gray-700 cursor-pointer"><EmailOutlinedIcon/><span className="pl-3">Messages</span></li>
+                                                    }
                                                 </ul>
                                             </div>
-                                            <div className="w-9/12 bg-blue-400 h-full"></div>
+                                            <div className="w-9/12 bg-gray-400 h-full p-10 overflow-scroll">
+                                                {
+                                                    profile && <div className="bg-neutral-200 w-full h-auto rounded-2xl">
+                                                        <div className="avata flex justify-center items-center h-80">
+                                                            {
+                                                                user.UserImageAddress && <Avatar src={user.UserImageAddress} sx={{scale:"7"}} className="hover:scale-110 transition duration-300"  />
+                                                            }{
+                                                                !user.UserImageAddress && <Avatar />
+                                                            }
+                                                        </div>
+                                                        <div className="px-5 pb-10">
+                                                            <div className="pb-20 pt-3 px-10 border-gray-600 border-2 relative border-dashed rounded-2xl p-3">
+                                                                <h1 className="py-5 text-3xl text-gray-700 font-bold">User Information</h1>
+                                                                <ul className=" flex pl-5">
+                                                                    <div className="flex-1">
+                                                                        <li className="py-3 font-bold"><span>User Name</span>:<span className="pl-3 font-normal">{user.UserName}</span></li>
+                                                                        <li className="py-3 font-bold"><span>Email</span>:<span className="pl-3 font-normal">{user.email}</span></li>
+                                                                        <li className="py-3  font-bold"><span>Password</span>:<span className="px-5 cursor-pointer font-normal" onMouseEnter={()=>{setShowPassword(true)}} onMouseLeave={()=>{setShowPassword(false)}}>{showPassword && <span>{user.password}</span>}{!showPassword && <span>*************</span>}</span></li>
+                                                                    </div>
+                                                                    <div className="flex-1">
+                                                                        <li className="py-3 font-bold"><span>Cart</span>:<span onClick={handleCart} className="pl-3 font-normal cursor-pointer hover:text-blue-800 transition duration-300">{user.CartProductID.length}<span className="pl-1">Product</span></span></li>
+                                                                        <p className="hidden">{Orders.map((or)=>{if(or.UserID == user.userID){orderCounter = orderCounter + 1 }})}</p>
+                                                                        <li className="py-3 font-bold"><span>Orders</span>:<span onClick={handleUserorders} className="pl-3 font-normal cursor-pointer hover:text-blue-800 transition duration-300">{orderCounter} <span className="pl-1">order</span></span></li>
+                                                                        <li className="py-3 font-bold"><span>Bookmarks</span>:<span onClick={handleBookmarks} className="pl-3 font-normal cursor-pointer hover:text-blue-800 transition duration-300">{user.BookmarksProductCode.length}<span className="pl-1">Bookmark</span></span></li>
+
+                                                                    </div>
+                                                                </ul>
+
+                                                                <div className="absolute right-10 bottom-10">
+                                                                    <IconButton onClick={()=>{setEditeProfile(true)}} color="primary" aria-label="Edit" >
+                                                                        <ModeEditOutlinedIcon  />
+                                                                    </IconButton>
+                                                                </div>
+
+                                                            </div>
+                                                            {
+                                                                editeProfile &&                                                      
+                                                                <div className="pb-20 pt-3 my-5 px-10 border-gray-600 border-2 relative border-dashed rounded-2xl p-3">
+                                                                    <h1 className="py-5 text-3xl text-gray-700 font-bold">Edit User Information</h1>
+                                                                    <form className=" flex pl-5">
+                                                                        <div className="flex-1">
+                                                                            <p className="py-3 font-bold"><span>User Name</span>: <input className="px-3 py-2 rounded-2xl bg-transparent border-b-2 border-solid border-black font-thin" defaultValue={user.UserName} type="text" name="userName"/></p>
+                                                                            <p className="py-3 font-bold"><span>Email</span>: <input className="px-3 py-2 rounded-2xl bg-transparent border-b-2 border-solid border-black font-thin" defaultValue={user.email} type="email" name="userName"/></p>
+                                                                            <p className="py-3  font-bold"><span>Password</span>: <input className="px-3 py-2 rounded-2xl bg-transparent border-b-2 border-solid border-black font-thin" type="password" name="userName"/></p>
+                                                                            <p className="py-3  font-bold"><span>Image</span>: <input type="file" name="userName"/></p>
+                                                                            <input type="submit" value="Confirm" className=" bg-lime-500 text-white hover:bg-lime-700 transition duration-300 shadow-lg m-3 ml-5 p-2 rounded-2xl w-40 " />
+                                                                        </div>
+
+
+                                                                        <div className="absolute right-10 bottom-10">
+                                                                            <IconButton onClick={()=>{setEditeProfile(false)}} color="error" className="scale-150" aria-label="Edit"  >
+                                                                                <CancelOutlinedIcon  />
+                                                                            </IconButton>                                                                                                                
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                }{
+                                                    cart && <div className="bg-blue-500 w-full h-full"></div>
+                                                }{
+                                                    userorders && <div className="bg-yellow-500 w-full h-full"></div>
+                                                }{
+                                                    bookmarks && <div className="bg-neutral-500 w-full h-full"></div>
+                                                }{
+                                                    messages && <div className="bg-lime-500 w-full h-full"></div>
+                                                }
+                                            </div>
                                         </div>
                                     )
                                 }
