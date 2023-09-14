@@ -141,6 +141,9 @@ const Dashboard = () => {
     const [editeProfile , setEditeProfile] = useState(false);
     const [showPassword , setShowPassword] = useState(false);
     let orderCounter = 0;
+    let DeliveredCounter = true;
+    let NotDeliveredCounter = true;
+
 
 
 
@@ -672,9 +675,127 @@ const Dashboard = () => {
                                                         </div>
                                                     </div>
                                                 }{
-                                                    cart && <div className="bg-blue-500 w-full h-full"></div>
+                                                    cart && <div className="bg-blue-500 w-full h-full">
+                                                        
+                                                    </div>
                                                 }{
-                                                    userorders && <div className="bg-yellow-500 w-full h-full"></div>
+                                                    userorders && <div className="bg-neutral-200 w-full h-auto min-h-full overflow-y-scroll rounded-2xl p-8">
+                                                        <h1 className="text-4xl text-gray-700 font-bold">Orders History</h1>
+                                                        <div className="flex flex-col gap-5 p-10 h-full w-full">
+                                                            <div className="Delivered">
+                                                                <h1  className="text-2xl font-bold text-gray-700 pb-5">Delivered</h1>
+                                                                    {
+                                                                        Orders.map((order)=>{
+                                                                            if(user.userID == order.UserID){
+                                                                                if(order.DeliveryStatus){
+                                                                                    DeliveredCounter = false; 
+                                                                                    return(
+                                                                                        <>
+                                                                                            <div className="bg-neutral-300 my-5 h-full Delivered w-full rounded-2xl border-2 border-dashed border-gray-600 p-5">
+                                                                                                {
+                                                                                                    Toys.map((toy)=>{
+                                                                                                        if(toy.Code == order.ProductID){
+                                                                                                            return(
+                                                                                                                <div className="flex w-full">
+                                                                                                                    <div className="w-2/6 h-auto mr-5">
+                                                                                                                        <Link to={"/toy/" + toy.Code}>
+                                                                                                                            <img src={toy.toyImages[0]} className="rounded-2xl w-full h-full hover:scale-110 transition duration-500"/>
+                                                                                                                        </Link>
+                                                                                                                    </div>
+                                                                                                                    <div className="w-auto h-auto max-h-full p-5 flex gap-4 ">
+                                                                                                                        <ul className="font-bold">
+                                                                                                                            <li className="py-2"><span className="">Product Name</span>:<span className="pl-3 font-light">{order.ProductName}</span></li>
+                                                                                                                            <li className="py-2"><span className="">Order Code</span>:<span className="pl-3 font-light">{order.OrderID}</span></li>
+                                                                                                                            <li className="py-2"><span className="">Order Date</span>:<span className="pl-3 font-light">{order.OrderDate} , {order.OrderTime}</span></li>
+                                                                                                                            <li className="py-2"><span className="">Delivery</span>:{order.DeliveryStatus && <span className="pl-3 font-bold text-lime-600">Delivered</span>}{!order.DeliveryStatus && <span className="pl-3 font-light text-red-600">{order.Delivery}</span>}</li>
+                                                                                                                        </ul>
+                                                                                                                        <ul className="font-bold">
+                                                                                                                            <li className="py-2"><span className="">Buyer Name</span>:<span className="pl-3 font-light">{order.BuyerName}</span></li>
+                                                                                                                            <li className="py-2"><span className="">Buyer Addres</span>:<span className="pl-3 font-light">{order.BuyerAddress}</span></li>
+                                                                                                                            <li className="py-2"><span className="">Price</span>:<span className="pl-3 font-bold text-lime-700">{order.Price}{order.Symbol}</span></li>
+                                                                                                                            <li className="py-2"><span className="">Seller Name</span>:<span className="pl-3 font-light">{order.SellerName}</span></li>
+                                                                                                                            
+                                                                                                                        </ul>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            )
+                                                                                                        }
+                                                                                                    })
+                                                                                                }
+                                                                                            </div>
+                                                                                        </>
+                                                                                    )
+                                                                                    
+                                                                                }
+                                                                            }
+                                                                        })
+                                                                    }
+                                                                    {
+                                                                        DeliveredCounter &&
+                                                                                <div className="text-center font-thin text-xl text-gray-700">
+                                                                                    <p>No item.</p>
+                                                                                </div>
+
+                                                                    }
+                                                            </div>
+                                                            <div className="NotDelivered">
+                                                                <h1 className="text-2xl font-bold text-gray-700 pb-5">NotDelivered</h1>
+                                                                {
+                                                                        Orders.map((order)=>{
+                                                                            if(user.userID == order.UserID){
+                                                                                if(!order.DeliveryStatus){
+                                                                                    NotDeliveredCounter = false; 
+                                                                                        return(
+                                                                                            <>
+                                                                                                <div className="bg-neutral-300 my-5 h-full Delivered w-full rounded-2xl border-2 border-dashed border-gray-600 p-5">
+                                                                                                    {
+                                                                                                        Toys.map((toy)=>{
+                                                                                                            if(toy.Code == order.ProductID){
+                                                                                                                return(
+                                                                                                                    <div className="flex w-full">
+                                                                                                                        <div className="w-2/6 h-auto mr-5">
+                                                                                                                            <Link to={"/toy/" + toy.Code}>
+                                                                                                                                <img src={toy.toyImages[0]} className="rounded-2xl w-full h-full hover:scale-110 transition duration-500"/>
+                                                                                                                            </Link>
+                                                                                                                        </div>
+                                                                                                                        <div className="w-auto h-auto max-h-full p-5 flex gap-4 ">
+                                                                                                                            <ul className="font-bold">
+                                                                                                                                <li className="py-2"><span className="">Product Name</span>:<span className="pl-3 font-light">{order.ProductName}</span></li>
+                                                                                                                                <li className="py-2"><span className="">Order Code</span>:<span className="pl-3 font-light">{order.OrderID}</span></li>
+                                                                                                                                <li className="py-2"><span className="">Order Date</span>:<span className="pl-3 font-light">{order.OrderDate} , {order.OrderTime}</span></li>
+                                                                                                                                <li className="py-2"><span className="">Delivery</span>:{order.DeliveryStatus && <span className="pl-3 font-light text-lime-600">{order.Delivery}</span>}{!order.DeliveryStatus && <span className="pl-3 font-light text-red-600">In Way...</span>}</li>
+                                                                                                                            </ul>
+                                                                                                                            <ul className="font-bold">
+                                                                                                                                <li className="py-2"><span className="">Buyer Name</span>:<span className="pl-3 font-light">{order.BuyerName}</span></li>
+                                                                                                                                <li className="py-2"><span className="">Buyer Addres</span>:<span className="pl-3 font-light">{order.BuyerAddress}</span></li>
+                                                                                                                                <li className="py-2"><span className="">Price</span>:<span className="pl-3 font-bold text-lime-700">{order.Price}{order.Symbol}</span></li>
+                                                                                                                                <li className="py-2"><span className="">Seller Name</span>:<span className="pl-3 font-light">{order.SellerName}</span></li>
+                                                                                                                                
+                                                                                                                            </ul>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                )
+                                                                                                            }
+                                                                                                        })
+                                                                                                    }
+                                                                                                </div>
+                                                                                            </>
+                                                                                        )
+                                                                                    
+                                                                                }
+                                                                            }
+                                                                        })
+                                                                    }
+                                                                    {
+                                                                        NotDeliveredCounter &&
+                                                                                <div className="text-center font-thin text-xl text-gray-700">
+                                                                                    <p>No item.</p>
+                                                                                </div>
+
+                                                                    }
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 }{
                                                     bookmarks && <div className="bg-neutral-200 w-full min-h-full h-auto overflow-y-scroll pb-10 rounded-2xl p-5">
                                                         <h1 className="text-4xl font-bold text-gray-700">Bookmarks</h1>
