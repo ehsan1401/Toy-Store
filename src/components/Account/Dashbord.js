@@ -18,10 +18,14 @@ import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined
 import BookmarksOutlinedIcon from '@mui/icons-material/BookmarksOutlined';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import ShoppingBasketOutlinedIcon from '@mui/icons-material/ShoppingBasketOutlined';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import IconButton from '@mui/material/IconButton';
 import ModeEditOutlinedIcon from '@mui/icons-material/ModeEditOutlined';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
-import DoneOutlineOutlinedIcon from '@mui/icons-material/DoneOutlineOutlined';
+import Messages from '../../DB/Messages.json';
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+import { Diversity1Rounded } from "@mui/icons-material";
+
 
 const Dashboard = () => {
     let isAdmin = false;
@@ -575,7 +579,8 @@ const Dashboard = () => {
                                                         <li onClick={handleProfile} className="py-5 pl-10 text-lg bg-teal-700 text-gray-100 border-b-2 border-solid border-black font-bold px-3 hover:translate-x-5 hover:rounded-s-2xl hover:rounded-e-2xl hover:bg-teal-100 hover:text-gray-700 cursor-pointer"><AccountCircleOutlinedIcon/><span className="pl-3">Profile</span></li>
                                                     }
                                                     {
-                                                        profile &&                                                     <li onClick={handleProfile} className="py-5 pl-10 text-lg bg-teal-900 text-gray-100 border-b-2 border-solid border-black font-bold px-3 hover:translate-x-5 hover:rounded-s-2xl hover:rounded-e-2xl hover:bg-teal-100 hover:text-gray-700 cursor-pointer"><AccountCircleOutlinedIcon/><span className="pl-3">Profile</span></li>
+                                                        profile &&
+                                                        <li onClick={handleProfile} className="py-5 pl-10 text-lg bg-teal-900 text-gray-100 border-b-2 border-solid border-black font-bold px-3 hover:translate-x-5 hover:rounded-s-2xl hover:rounded-e-2xl hover:bg-teal-100 hover:text-gray-700 cursor-pointer"><AccountCircleOutlinedIcon/><span className="pl-3">Profile</span></li>
                                                     }
                                                     {
                                                         !cart && 
@@ -671,9 +676,117 @@ const Dashboard = () => {
                                                 }{
                                                     userorders && <div className="bg-yellow-500 w-full h-full"></div>
                                                 }{
-                                                    bookmarks && <div className="bg-neutral-500 w-full h-full"></div>
+                                                    bookmarks && <div className="bg-neutral-200 w-full min-h-full h-auto overflow-y-scroll pb-10 rounded-2xl p-5">
+                                                        <h1 className="text-4xl font-bold text-gray-700">Bookmarks</h1>
+                                                        <div className="grid grid-flow-row grid-cols-4 lg:gap-10 gap-5 p-10 h-auto">
+                                                            {
+                                                                Toys.map((toy)=>
+                                                                    user.BookmarksProductCode.map((book)=>{
+                                                                        if(toy.Code == book){
+                                                                            return(
+                                                                            <Link to={"/toy/" + toy.Code} className="h-auto  w-60 ">
+                                                                                <div className="border-2 border-solid w-full border-black h-auto rounded-2xl overflow-hidden relative">
+                                                                                    <img src={toy.toyImages[0]} className="h-56 w-full"/>
+                                                                                    <div className="absolute w-full top-48 bg-neutral-800 text-white bg-opacity-60 min-h-full px-5 py-3 hover:-translate-y-48 transition duration-700 rounded-t-2xl">
+                                                                                        <div className="flex justify-center">
+                                                                                            <KeyboardArrowUpIcon />
+                                                                                        </div>
+                                                                                        <div>
+                                                                                            <h1 className="text-gray-100 font-bold text-xl">{toy.title}</h1>
+                                                                                            <div className="px-3">
+                                                                                                <h2 className="py-1">{toy.Brand}</h2>
+                                                                                                <h2 className="pt-1">{toy.Category.map((cate)=>{return(<p>{cate}</p>)})}</h2>
+                                                                                                <div className="float-right">
+                                                                                                    <h1 className="font-bold text-3xl text-lime-400 ">{toy.Price} <span>{toy.Symbol}</span></h1>
+                                                                                                    {
+                                                                                                        toy.PriceBeforeOff && <p className="text-center line-through text-gray-200">{toy.PriceBeforeOff}{toy.Symbol}</p>
+                                                                                                    }{
+
+                                                                                                    }
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </Link>
+                                                                            )
+                                                                        }
+                                                                    })
+                                                                )
+                                                            }
+                                                        </div>
+                                                    </div>
                                                 }{
-                                                    messages && <div className="bg-lime-500 w-full h-full"></div>
+                                                    messages && <div className="bg-neutral-200 w-full h-auto rounded-2xl overflow-y-scroll pb-10">
+                                                        <h1 className="font-bold text-gray-700 text-4xl px-8 py-5">Messages</h1>
+                                                        <div className="px-10">
+                                                            {
+                                                                Messages.map((mes)=>{
+                                                                    if(mes.UserID == user.userID){
+                                                                            if(mes.Status === "Important"){
+                                                                                return(
+                                                                                    <Accordion className="my-2">
+                                                                                        <AccordionSummary
+                                                                                        expandIcon={<ExpandMoreIcon />}
+                                                                                        aria-controls="panel2a-content"
+                                                                                        id="panel2a-header"
+                                                                                        >
+                                                                                        <Typography><ErrorOutlineIcon color="warning" sx={{scale:"1.2"}}/> <span className="pl-3">{mes.Title}</span></Typography>
+                                                                                        </AccordionSummary>
+                                                                                        <AccordionDetails>
+                                                                                            <div className="flex gap-10">
+                                                                                                <h1 className="text-3xl font-bold px-5">{mes.Title}</h1>
+                                                                                                <h1 className="pt-3">Status: <span className="text-red-500 font-bold pl-2">{mes.Status}</span></h1>
+                                                                                                <h1 className="pt-3">From: <span className="text-gray-600 font-bold pl-2">{mes.From}</span></h1>
+                                                                                                <button className="px-3 py-2 text-white bg-red-500 hover:bg-red-800 transition duration-300 rounded-2xl font-bold absolute right-5">Remove</button>
+                                                                                            </div>
+                                                                                            <div className="info px-8 py-8">
+                                                                                                <p className="text">
+                                                                                                    <p className="px-5 font-thin text-lg">
+                                                                                                        {mes.text}
+                                                                                                    </p>
+                                                                                                </p>
+    
+                                                                                            </div>
+            
+                                                                                        </AccordionDetails>
+                                                                                    </Accordion>
+                                                                                )
+                                                                            }else{
+                                                                                return(
+                                                                                    <Accordion className="my-2">
+                                                                                        <AccordionSummary
+                                                                                        expandIcon={<ExpandMoreIcon />}
+                                                                                        aria-controls="panel2a-content"
+                                                                                        id="panel2a-header"
+                                                                                        >
+                                                                                        <Typography><EmailOutlinedIcon color="info" /> <span className="pl-3">{mes.Title}</span></Typography>
+                                                                                        </AccordionSummary>
+                                                                                        <AccordionDetails>
+                                                                                            <div className="flex gap-10">
+                                                                                                <h1 className="text-3xl font-bold px-5">{mes.Title}</h1>
+                                                                                                <h1 className="pt-3">Status: <span className="text-gray-700 font-bold pl-2">{mes.Status}</span></h1>
+                                                                                                <h1 className="pt-3">From: <span className="text-gray-600 font-bold pl-2">{mes.From}</span></h1>
+                                                                                                <button className="px-3 py-2 text-white bg-red-500 hover:bg-red-800 transition duration-300 rounded-2xl font-bold absolute right-5">Remove</button>
+                                                                                            </div>
+                                                                                            <div className="info px-8 py-8">
+                                                                                                <p className="text">
+                                                                                                    <p className="px-5 font-thin text-lg">
+                                                                                                        {mes.text}
+                                                                                                    </p>
+                                                                                                </p>
+    
+                                                                                            </div>
+            
+                                                                                        </AccordionDetails>
+                                                                                    </Accordion>
+                                                                                )
+                                                                            }
+                                                                    }
+                                                                })
+                                                            }
+                                                        </div>
+                                                    </div>
                                                 }
                                             </div>
                                         </div>

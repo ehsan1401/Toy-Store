@@ -43,7 +43,7 @@
         "email":"michael.14@gmail.com",
         "password":"www.michael.com",
         "UserImageAddress":"/img/user/5/user5.jpg",
-        "BookmarksProductCode" : [5 , 1 , 7],
+        "BookmarksProductCode" : [5 , 1 , 7 , 3 , 6 , 11],
         "CartProductID":[9 , 8],
         "Role":"User"
     },
