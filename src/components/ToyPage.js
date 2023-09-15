@@ -79,8 +79,6 @@ const ToyPage = () => {
         }
     }
     setTimeout(handleScroller , 15000);
-    console.log(trans)
-    console.log(AllproductWidth)
 
     return (
         <div>
