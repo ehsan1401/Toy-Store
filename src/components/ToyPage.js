@@ -203,6 +203,24 @@ const ToyPage = () => {
                                                     Necessitatibus incidunt possimus laudantium tenetur accusamus! Repellendus totam facere magni eveniet consectetur. Corrupti enim, laudantium illo ipsum, qui hic tenetur eius consectetur totam odit, nisi obcaecati commodi atque et! Quis!</p>
                                                 </div>
                                             </div>
+                                            <div className="bg-red-600 h-auto w-full px-10 pb-8">
+                                                <h1 className="text-gray-200 text-3xl font-bold p-5">other products</h1>
+                                                <div className="bg-blue-600 w-full overflow-x-scroll rounded-lg" style={{width:"100%"}}>
+                                                    <div className="bg-lime-600 w-full rounded-2xl flex gap-5" style={{width:"3000px"}}>
+                                                        {
+                                                            Toys.map((toy)=>{
+                                                                return(
+                                                                    <>
+                                                                        <div className="bg-yellow-300 border-dashed border-2 border-gray-700 w-60 h-80">
+                                                                            <img src={toy.toyImages[0]} className="w-full h-2/3" />
+                                                                        </div>
+                                                                    </>
+                                                                )
+                                                            })
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     )
                                 }
