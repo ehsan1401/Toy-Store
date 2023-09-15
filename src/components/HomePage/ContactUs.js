@@ -49,7 +49,7 @@ const Accordion = styled((props) => (
 const ContactUs = () => {
     const {light} = useContext(Context);
     const [expanded, setExpanded] = React.useState('panel1');
-
+    let Storage = JSON.parse(localStorage.getItem("user"));
     const handleChange = (panel) => (event, newExpanded) => {
       setExpanded(newExpanded ? panel : false);
     };
@@ -203,7 +203,8 @@ const ContactUs = () => {
                 <h1 className='font-bold text-4xl text-gray-200 pl-3 pt-10 pb-5'>Need more Help?</h1>
                 <div className='h-auto bg-white rounded-md bg-opacity-30 flex relative'>
                     <form className='grid gap-5 lg:w-1/2 w-full p-5 py-20'>
-                        <input type="email" placeholder='Email' className='p-3 lg:mx-10 max-h-16'/>
+                        {!Storage && <input type="email" placeholder='Email' className='p-3 lg:mx-10 max-h-16'/>}
+                        {Storage && <input type="email" defaultValue={Storage.email} placeholder='Email' className='p-3 lg:mx-10 max-h-16'/>}
                         <StyledTextarea
                             className='lg:mx-10'
                             maxRows={8}
@@ -211,7 +212,8 @@ const ContactUs = () => {
                             placeholder="Tell us your opinion or problem"
                             defaultValue=""
                         />
-                        <p className='font-thin lg:text-lg text-sm text-gray-600 lg:mx-10'>Post comment with your account <Link to={"/Login"} className='font-semibold px-3 hover:text-gray-800'>Log in</Link></p>
+                        {!Storage && <p className='font-thin lg:text-lg text-sm text-gray-600 lg:mx-10'>Post comment with your account <Link to={"/Login"} className='font-semibold px-3 hover:text-gray-800'>Log in</Link></p>}
+                        {Storage && <p className='font-thin lg:text-lg text-sm text-gray-600 lg:mx-10'>Post comment as <span className='font-semibold px-3'>{Storage.email}</span></p>}
                         <input type="submit" value="Send" className='bg-gradient-to-r mx-5 from-lime-600 to-lime-400 hover:from-lime-800 hover:to-lime-400 py-3 rounded-lg text-white font-semibold cursor-pointer' />
                     </form>
                     <img src="./img/ContactUs.png" className='w-1/3  absolute right-32 top-5 scale-110 hidden lg:inline' />
@@ -316,7 +318,8 @@ const ContactUs = () => {
                 <h1 className='font-bold text-4xl text-gray-200 pl-3 pt-10 pb-5'>Need more Help?</h1>
                 <div className='h-auto bg-white rounded-md bg-opacity-30 flex relative'>
                     <form className='grid gap-5 lg:w-1/2 w-full p-5 py-20'>
-                        <input type="email" placeholder='Email' className='p-3 lg:mx-10 max-h-16'/>
+                        {!Storage && <input type="email" placeholder='Email' className='p-3 lg:mx-10 max-h-16'/>}
+                        {Storage && <input type="email" defaultValue={Storage.email} placeholder='Email' className='p-3 lg:mx-10 max-h-16'/>}
                         <StyledTextarea
                             className='lg:mx-10'
                             maxRows={8}
@@ -324,7 +327,8 @@ const ContactUs = () => {
                             placeholder="Tell us your opinion or problem"
                             defaultValue=""
                         />
-                        <p className='font-thin lg:text-lg text-sm text-gray-200 lg:mx-10'>Post comment with your account <Link to={"/Login"} className='font-semibold px-3 hover:text-gray-800'>Log in</Link></p>
+                        {!Storage && <p className='font-thin lg:text-lg text-sm text-gray-200 lg:mx-10'>Post comment with your account <Link to={"/Login"} className='font-semibold px-3 hover:text-gray-800'>Log in</Link></p>}
+                        {Storage && <p className='font-thin lg:text-lg text-sm text-gray-200 lg:mx-10'>Post comment as <span className='font-semibold px-3'>{Storage.email}</span></p>}
                         <input type="submit" value="Send" className='bg-gradient-to-r mx-5 from-lime-600 to-lime-400 hover:from-lime-800 hover:to-lime-400 py-3 rounded-lg text-white font-semibold cursor-pointer' />
                     </form>
                     <img src="./img/ContactUs.png" className='w-1/3  absolute right-32 top-5 scale-110 hidden lg:inline' />

@@ -1,6 +1,6 @@
 import { useParams , Link } from "react-router-dom";
 import Toys from '../DB/Toys.json';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import CreateIcon from '@mui/icons-material/CreateOutlined';
 import BrandingWatermarkIcon from '@mui/icons-material/BrandingWatermarkOutlined';
@@ -25,13 +25,25 @@ const ToyPage = () => {
     const {light} = useContext(Context);
     const {Code} = useParams();
     const [add, setAdd] = useState(0);
-    const [logedIn , setLogedIn] = useState(false);
+    // const [logedIn , setLogedIn] = useState(false);
     const [buy , setBuy] = useState(false);
     const [cart , setCart] = useState(false);
     const [bookmark , setBookmark] = useState(false);
     const [price , setPrice] = useState(1);
     let con =0 ;
     let imageNum = 0;
+    let Storage = JSON.parse(localStorage.getItem("user"));
+
+    const handleBookmark = () =>{
+        for(let i =0 ; i<Storage.BookmarksProductCode.length ; i++){
+            if(Storage.BookmarksProductCode[i] == Code){
+                setBookmark(true);
+            }
+        }
+    }
+    useEffect(handleBookmark,[])
+
+
     const adder = (minOrMax) =>{
         if(minOrMax === "+"){
             if(add<imageNum - 1){
@@ -57,7 +69,7 @@ const ToyPage = () => {
     return (
         <div>
             {
-                light && 
+            light && 
                 <div className=" bg-gradient-to-l from-fuchsia-500 to-cyan-200">
                     {
                         !buy && <div className="bg-gradient-to-r from-emerald-400 to-cyan-400">
@@ -65,7 +77,7 @@ const ToyPage = () => {
                             {
                                 cart && <div>
                                     {
-                                        !logedIn && <Alert
+                                        !Storage && <Alert
                                         severity="error"
                                         className=" flex justify-center items-center rounded-3xl"
                                         sx={{ height:'70px', backgroundColor:red[600]}}
@@ -74,6 +86,22 @@ const ToyPage = () => {
                                         }}
                                     >
                                             <p className="text-white text-lg font-thin"><Link className="font-bold" to={"/Login"}>Please Login</Link> to your account</p> 
+                        
+                                            <p className="hidden">{setTimeout( ()=>{setCart(false)} , 5000)}</p>
+                                        </Alert>
+                                    }
+                                    {
+                                        Storage && <Alert
+                                        severity="success"
+                                        className=" flex justify-center items-center rounded-3xl"
+                                        sx={{ height:'70px'}}
+                                        iconMapping={{
+                                            error: <ErrorOutlineRoundedIcon className="text-white" fontSize="inherit" />,
+                                        }}
+                                    >
+                                            <p className="text-lime-700 text-lg font-thin">Added to Cart</p> 
+                                            {/* Add this item to cart */}
+                                            {console.log(Code)}
                         
                                             <p className="hidden">{setTimeout( ()=>{setCart(false)} , 5000)}</p>
                                         </Alert>
@@ -209,7 +237,8 @@ const ToyPage = () => {
                                                             <h1 className="text-lg font-semibold text-gray-50">Buyer Information</h1>
                                                             <div className="flex flex-row">
                                                                 <p className="pl-3 pt-5 pr-2">Buyer Name:</p>
-                                                                <TextField className="" id="standard-basic" label="Name" variant="standard" required  name="buyerName" />
+                                                                {Storage && <TextField className="" defaultValue={Storage.UserName} id="standard-basic" label="Name" variant="standard" required  name="buyerName" />}
+                                                                {!Storage && <TextField className="" id="standard-basic" label="Name" variant="standard" required  name="buyerName" />}
                                                             </div>
                                                             <div className="flex flex-row">
                                                                 <p className="pl-3 pt-5 pr-2" >Buyer Phone:</p>
@@ -222,7 +251,8 @@ const ToyPage = () => {
                                                             </div>
                                                             <div className="flex flex-row">
                                                                 <p className="pl-3 pt-5 pr-2">Buyer Email:</p>
-                                                                <TextField className="" id="standard-basic" label="Email" variant="standard" type="email" name="buyerEmail" />
+                                                                {!Storage && <TextField className="" id="standard-basic" label="Email" variant="standard" type="email" name="buyerEmail" />}
+                                                                {Storage && <TextField className="" defaultValue={Storage.email} id="standard-basic" label="Email" variant="standard" type="email" name="buyerEmail" />}
                                                             </div>
                                                         </div>
                                                         <div className="buyerInfo py-5 flex flex-col gap-3">
@@ -269,7 +299,7 @@ const ToyPage = () => {
                             {
                                 cart && <div>
                                     {
-                                        !logedIn && <Alert
+                                        !Storage && <Alert
                                         severity="error"
                                         className=" flex justify-center items-center rounded-3xl"
                                         sx={{ height:'70px', backgroundColor:red[600]}}
@@ -278,6 +308,22 @@ const ToyPage = () => {
                                         }}
                                     >
                                             <p className="text-white text-lg font-thin"><Link className="font-bold" to={"/Login"}>Please Login</Link> to your account</p> 
+                        
+                                            <p className="hidden">{setTimeout( ()=>{setCart(false)} , 5000)}</p>
+                                        </Alert>
+                                    }
+                                    {
+                                        Storage && <Alert
+                                        severity="success"
+                                        className=" flex justify-center items-center rounded-3xl"
+                                        sx={{ height:'70px'}}
+                                        iconMapping={{
+                                            error: <ErrorOutlineRoundedIcon className="text-white" fontSize="inherit" />,
+                                        }}
+                                    >
+                                            <p className="text-lime-700 text-lg font-thin">Added to Cart</p> 
+                                            {/* Add this item to cart */}
+                                            {console.log(Code)}
                         
                                             <p className="hidden">{setTimeout( ()=>{setCart(false)} , 5000)}</p>
                                         </Alert>
@@ -413,7 +459,8 @@ const ToyPage = () => {
                                                             <h1 className="text-lg font-semibold text-gray-50">Buyer Information</h1>
                                                             <div className="flex flex-row">
                                                                 <p className="pl-3 pt-5 pr-2">Buyer Name:</p>
-                                                                <TextField className="" id="standard-basic" label="Name" variant="standard" required  name="buyerName" color="warning" />
+                                                                {!Storage && <TextField className="" id="standard-basic" label="Name" variant="standard" required  name="buyerName" color="warning" />}
+                                                                {Storage && <TextField className="" defaultValue={Storage.UserName} id="standard-basic" label="Name" variant="standard" required  name="buyerName" color="warning" />}
                                                             </div>
                                                             <div className="flex flex-row">
                                                                 <p className="pl-3 pt-5 pr-2" >Buyer Phone:</p>
@@ -426,7 +473,8 @@ const ToyPage = () => {
                                                             </div>
                                                             <div className="flex flex-row">
                                                                 <p className="pl-3 pt-5 pr-2">Buyer Email:</p>
-                                                                <TextField className="" id="standard-basic" label="Email" variant="standard" type="email" name="buyerEmail" color="warning"  />
+                                                                {!Storage && <TextField className="" id="standard-basic" label="Email" variant="standard" type="email" name="buyerEmail" color="warning"  />}
+                                                                {Storage && <TextField className="" defaultValue={Storage.email} id="standard-basic" label="Email" variant="standard" type="email" name="buyerEmail" color="warning"  />}
                                                             </div>
                                                         </div>
                                                         <div className="buyerInfo py-5 flex flex-col gap-3">

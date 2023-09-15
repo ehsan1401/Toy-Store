@@ -7,7 +7,7 @@ const Logout = () => {
     const navigate = useNavigate();
     useEffect(()=>{
         localStorage.clear();
-        navigate(-1);
+        navigate("/Login");
         window.location.reload(false);
     },[])
     return (

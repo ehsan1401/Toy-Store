@@ -63,7 +63,7 @@
         "email":"ehsan.good1382@gmail.com",
         "password":"ehsan3333",
         "UserImageAddress":"/img/user/7/user7.jpg",
-        "BookmarksProductCode" : [1 , 7],
+        "BookmarksProductCode" : [1 , 7 ,4 , 8 , 6 , 11],
         "CartProductID":[7 , 2],
         "Role":"User"
     }
