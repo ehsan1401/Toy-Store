@@ -35,9 +35,11 @@ const ToyPage = () => {
     let Storage = JSON.parse(localStorage.getItem("user"));
 
     const handleBookmark = () =>{
-        for(let i =0 ; i<Storage.BookmarksProductCode.length ; i++){
-            if(Storage.BookmarksProductCode[i] == Code){
-                setBookmark(true);
+        if(Storage){
+            for(let i =0 ; i<Storage.BookmarksProductCode.length ; i++){
+                if(Storage.BookmarksProductCode[i] == Code){
+                    setBookmark(true);
+                }
             }
         }
     }
@@ -65,7 +67,21 @@ const ToyPage = () => {
         setBuy(false);
     }
 
-    
+    let productWidth = 240 ;
+    let AllproductWidth = 0 ;
+    const [trans , setTrans] =useState(0);
+    for(let i=0 ; i<Toys.length ; i++){
+        AllproductWidth = AllproductWidth + productWidth ;
+    }
+    const handleScroller = ()=>{
+        if(trans < AllproductWidth){
+            setTrans(trans + 240);
+        }
+    }
+    setTimeout(handleScroller , 15000);
+    console.log(trans)
+    console.log(AllproductWidth)
+
     return (
         <div>
             {
@@ -196,28 +212,37 @@ const ToyPage = () => {
                                                 </div>
                                                 </div>
                                             </div>
-                                            <div className="h-auto px-14 pb-5">
+                                            <div className="h-auto px-14 pb-3">
                                                 <div className="  bg-gradient-to-r from-violet-200 to-pink-200 rounded-2xl p-5">
                                                     <h1 className="text-2xl font-bold">Description:</h1>
                                                     <p className="pl-3 p-5">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis, sequi. Ea voluptates corrupti, temporibus ratione excepturi magni at deserunt veritatis, obcaecati iusto assumenda dicta nobis magnam odio, et beatae delectus!
                                                     Necessitatibus incidunt possimus laudantium tenetur accusamus! Repellendus totam facere magni eveniet consectetur. Corrupti enim, laudantium illo ipsum, qui hic tenetur eius consectetur totam odit, nisi obcaecati commodi atque et! Quis!</p>
                                                 </div>
                                             </div>
-                                            <div className="bg-red-600 h-auto w-full px-10 pb-8">
-                                                <h1 className="text-gray-200 text-3xl font-bold p-5">other products</h1>
-                                                <div className="bg-blue-600 w-full overflow-x-scroll rounded-lg" style={{width:"100%"}}>
-                                                    <div className="bg-lime-600 w-full rounded-2xl flex gap-5" style={{width:"3000px"}}>
-                                                        {
-                                                            Toys.map((toy)=>{
-                                                                return(
-                                                                    <>
-                                                                        <div className="bg-yellow-300 border-dashed border-2 border-gray-700 w-60 h-80">
-                                                                            <img src={toy.toyImages[0]} className="w-full h-2/3" />
-                                                                        </div>
-                                                                    </>
-                                                                )
-                                                            })
-                                                        }
+                                            <div className=" px-14 pb-3">
+                                                <div className="bg-gradient-to-r from-violet-200 to-pink-200 h-auto w-full pb-8 px-8 rounded-2xl ">
+                                                    <h1 className="text-gray-700 text-3xl font-bold p-5">other products</h1>
+                                                    <div className="w-full overflow-x-scroll rounded-lg" style={{minWidth:"100%"}}>
+                                                        <div className="w-full rounded-2xl flex gap-5 transition duration-500" style={{minWidth:`${AllproductWidth}px` , transform:`translate(${-trans}px, 0px)`}}>
+                                                            {
+                                                                Toys.map((toy)=>{
+                                                                    return(
+                                                                        <Link to={"/toy/" + toy.Code}>
+                                                                            <div className="bg-gradient-to-tr from-slate-100 to-slate-300 border-dashed rounded-xl overflow-hidden border-2 border-gray-700 w-60 h-80">
+                                                                                <img src={toy.toyImages[0]} className="w-full h-2/3" />
+                                                                                <div className="h-1/3 px-3 relative">
+                                                                                    <h1 className="font-bold text-gray-700">{toy.title}</h1>
+                                                                                    <div className="absolute bottom-6 right-6 text-center">
+                                                                                        <h2 className="font-bold text-lime-600 text-2xl"> {toy.PriceBeforeOff && <span className="font-thin line-through text-base text-red-500 px-3 justify-center relative bottom-1">{toy.PriceBeforeOff}{toy.Symbol}</span>}{toy.Price}{toy.Symbol}</h2>
+                                                                                        
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </Link>
+                                                                    )
+                                                                })
+                                                            }
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -441,6 +466,33 @@ const ToyPage = () => {
                                                     <h1 className="text-2xl font-bold">Description:</h1>
                                                     <p className="pl-3 p-5">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis, sequi. Ea voluptates corrupti, temporibus ratione excepturi magni at deserunt veritatis, obcaecati iusto assumenda dicta nobis magnam odio, et beatae delectus!
                                                     Necessitatibus incidunt possimus laudantium tenetur accusamus! Repellendus totam facere magni eveniet consectetur. Corrupti enim, laudantium illo ipsum, qui hic tenetur eius consectetur totam odit, nisi obcaecati commodi atque et! Quis!</p>
+                                                </div>
+                                            </div>
+                                            <div className=" px-14 pb-3">
+                                                <div className="bg-gradient-to-l from-stone-500 to-stone-700 h-auto w-full pb-8 px-8 rounded-2xl ">
+                                                    <h1 className="text-gray-200 text-3xl font-bold p-5">other products</h1>
+                                                    <div className="w-full overflow-x-scroll rounded-lg" style={{minWidth:"100%"}}>
+                                                        <div className="w-full rounded-2xl flex gap-5 transition duration-500" style={{minWidth:`${AllproductWidth}px` , transform:`translate(${-trans}px, 0px)`}}>
+                                                            {
+                                                                Toys.map((toy)=>{
+                                                                    return(
+                                                                        <Link to={"/toy/" + toy.Code}>
+                                                                            <div className="bg-gradient-to-tr from-slate-400 to-slate-700 border-dashed rounded-xl overflow-hidden border-2 border-gray-300 w-60 h-80">
+                                                                                <img src={toy.toyImages[0]} className="w-full h-2/3" />
+                                                                                <div className="h-1/3 px-3 relative">
+                                                                                    <h1 className="font-bold text-gray-200">{toy.title}</h1>
+                                                                                    <div className="absolute bottom-6 right-6 text-center">
+                                                                                        <h2 className="font-bold text-lime-400 text-2xl"> {toy.PriceBeforeOff && <span className="font-thin line-through text-base text-red-400 px-3 justify-center relative bottom-1">{toy.PriceBeforeOff}{toy.Symbol}</span>}{toy.Price}{toy.Symbol}</h2>
+                                                                                        
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </Link>
+                                                                    )
+                                                                })
+                                                            }
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

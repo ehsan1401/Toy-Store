@@ -17,6 +17,26 @@ import Context from '../../Context';
 
 const Register = () => {
 
+
+
+    console.log(
+        "Hi, for Login to website as Admin to can Use this email and password:"
+    )
+    console.log(
+        "Admi@gmail.com ___ pass: Admin"
+    )
+    console.log(
+        "for Login to website as User to can Use these emails and passwords:"
+    )
+    console.log(
+        "1_  ehsan.good1382@gmail.com ___ pass: ehsan3333"
+    )
+    console.log(
+        "2_  michael.14@gmail.com ___ pass: www.michael.com"
+    )
+    console.log(
+        "3_  Ali.1455home@gmail.com ___ pass: ali1415"
+    )
     const {light} = useContext(Context);
 
     const navigate = useNavigate();
