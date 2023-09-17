@@ -20,7 +20,7 @@ import Switch from '@mui/material/Switch';
 
 
 const pages = ['Home' , 'Store' , 'Games'];
-const settings = ['Profile', 'Dashboard','Logout'];
+const settings = ['Dashboard','Logout'];
 const NotLogin = ['Login' , 'Register' ];
 
 
@@ -118,7 +118,7 @@ function ResponsiveAppBar() {
               </div>
               <div className="flex">
                 <span className="pt-1 pr-2 font-mono">{light && <p>Light</p>}{!light && <p>Dark</p>}</span>
-                <span><Switch color="warning" onClick={handleLight} /></span>
+                <span><Switch color="warning" checked={!light} onClick={handleLight} /></span>
               </div>
               {ops && <Box sx={{ flexGrow: 0 }} className="pl-3">
               <Tooltip title="Account">

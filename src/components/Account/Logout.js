@@ -6,9 +6,9 @@ import { useNavigate } from "react-router-dom";
 const Logout = () => {
     const navigate = useNavigate();
     useEffect(()=>{
-        localStorage.clear();
+        localStorage.removeItem("user")
         navigate("/Login");
-        window.location.reload(false);
+        // window.location.reload(false);
     },[])
     return (
     <></>

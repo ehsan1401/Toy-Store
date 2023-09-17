@@ -36,9 +36,11 @@ const ToyPage = () => {
 
     const handleBookmark = () =>{
         if(Storage){
-            for(let i =0 ; i<Storage.BookmarksProductCode.length ; i++){
-                if(Storage.BookmarksProductCode[i] == Code){
-                    setBookmark(true);
+            if(Storage.email !== 'Admin@gmail.com'){
+                for(let i =0 ; i<Storage.BookmarksProductCode.length ; i++){
+                    if(Storage.BookmarksProductCode[i] == Code){
+                        setBookmark(true);
+                    }
                 }
             }
         }
@@ -220,7 +222,7 @@ const ToyPage = () => {
                                             <div className=" px-14 pb-3">
                                                 <div className="bg-gradient-to-r from-violet-200 to-pink-200 h-auto w-full pb-8 px-8 rounded-2xl ">
                                                     <h1 className="text-gray-700 text-3xl font-bold p-5">other products</h1>
-                                                    <div className="w-full overflow-x-scroll rounded-lg" style={{minWidth:"100%"}}>
+                                                    <div className="w-full overflow-x-scroll rounded-lg" style={{minWidth:"100%" }}>
                                                         <div className="w-full rounded-2xl flex gap-5 transition duration-500" style={{minWidth:`${AllproductWidth}px` , transform:`translate(${-trans}px, 0px)`}}>
                                                             {
                                                                 Toys.map((toy)=>{

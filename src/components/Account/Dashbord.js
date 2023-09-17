@@ -26,6 +26,7 @@ import Messages from '../../DB/Messages.json';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import { useContext } from "react";
 import Context from '../../Context';
+import { grey } from "@mui/material/colors";
 
 
 const Dashboard = () => {
@@ -59,7 +60,7 @@ const Dashboard = () => {
       
       const Listbox = styled('ul')(({ theme }) => ({
         
-        width: "60%",
+        width: "88.5%",
         color:'black',
         borderRadius: 10 ,
         margin: 0,
@@ -136,20 +137,19 @@ const Dashboard = () => {
 
 
     //   User State and Functions
-    const [profile , setProfile] = useState(false);
+    const [profile , setProfile] = useState(true);
     const [cart , setCart] = useState(false);
     const [userorders , setUserorders] = useState(false);
     const [bookmarks , setBookmarks] = useState(false);
     const [messages , setMessages] = useState(false);
     const [editeProfile , setEditeProfile] = useState(false);
     const [showPassword , setShowPassword] = useState(false);
+
+    const [newMessage , setNewMessage] = useState(false);
+
     let orderCounter = 0;
     let DeliveredCounter = true;
     let NotDeliveredCounter = true;
-
-
-
-
     const handleProfile = ()=>{
         setProfile(true);
         setCart(false);
@@ -186,6 +186,22 @@ const Dashboard = () => {
         setMessages(true);
     }
 
+    const handleEditeSubmit = (e)=>{
+        e.preventDefault();
+        const data = new FormData(e.target);
+        const data_info = Object.fromEntries(data.entries());
+        // data_info will add to DB
+        console.log(data_info);
+        setEditeProfile(false);
+    }
+    const handleNewMessageSubmit = (e)=>{
+        e.preventDefault();
+        const data = new FormData(e.target);
+        const NewMessage = Object.fromEntries(data.entries());
+        // NewMessage will add to DB
+        console.log(NewMessage);
+        setNewMessage(false);
+    }
 
 
     return (
@@ -233,7 +249,7 @@ const Dashboard = () => {
                                                     <ul className="pl-3 pt-2">
                                                         <li className="text-lg py-1"><span className="font-mono">Website Number of Products</span>:<span className="font-thin px-4">{Toys.length}<span className="pl-2">Product</span></span></li>
                                                         <li className="text-lg py-1"><span className="font-mono">Website Number of Users</span>:<span className="font-thin px-4">{Users.length}<span className="pl-2">User</span></span></li>
-                                                        <li className="text-lg py-1"><span className="font-mono">Website Domain</span>:<span className="font-thin px-4"><a href="http://localhost:3000">http://localhost:3000</a></span></li>
+                                                        <li className="text-lg py-1"><span className="font-mono">Website Domain</span>:<span className="font-thin px-4"><a href={window.location.host}>{window.location.host}</a></span></li>
                                                     </ul>
                                                 </li>
                                                 <li className="text-xl bg-gray-200 border-2 border-solid border-gray-600 rounded-2xl p-5 my-3"><h1 className="font-semibold">Other Information</h1>
@@ -619,7 +635,7 @@ const Dashboard = () => {
                                                         }
                                                     </ul>
                                                 </div>
-                                                <div className="lg:w-9/12 w-full bg-gray-400 h-auto p-10 overflow-scroll">
+                                                <div className="lg:w-9/12 w-full bg-gray-400 h-auto p-10 overflow-y-scroll">
                                                     {
                                                         profile && <div className="bg-neutral-200 w-full h-auto rounded-2xl">
                                                             <div className="avata flex justify-center items-center h-80">
@@ -658,13 +674,13 @@ const Dashboard = () => {
                                                                     editeProfile &&                                                      
                                                                     <div className="pb-20 pt-3 my-5 px-10 border-gray-600 border-2 relative border-dashed rounded-2xl p-3">
                                                                         <h1 className="py-5 text-3xl text-gray-700 font-bold">Edit User Information</h1>
-                                                                        <form className=" flex pl-5">
+                                                                        <form className=" flex pl-5" onSubmit={handleEditeSubmit}>
                                                                             <div className="flex-1">
                                                                                 <p className="py-3 font-bold"><span>User Name</span>: <input className="px-3 py-2 rounded-2xl bg-transparent border-b-2 border-solid border-black font-thin" defaultValue={user.UserName} type="text" name="userName"/></p>
                                                                                 <p className="py-3 font-bold"><span>Email</span>: <input className="px-3 py-2 rounded-2xl bg-transparent border-b-2 border-solid border-black font-thin" defaultValue={user.email} type="email" name="userName"/></p>
                                                                                 <p className="py-3  font-bold"><span>Password</span>: <input className="px-3 py-2 rounded-2xl bg-transparent border-b-2 border-solid border-black font-thin" type="password" name="userName"/></p>
                                                                                 <p className="py-3  font-bold"><span>Image</span>: <input type="file" name="userName"/></p>
-                                                                                <input type="submit" value="Confirm" className=" bg-lime-500 text-white hover:bg-lime-700 transition duration-300 shadow-lg m-3 ml-5 p-2 rounded-2xl w-40 " />
+                                                                                <input type="submit" value="Confirm" className="cursor-pointer bg-lime-500 text-white hover:bg-lime-700 transition duration-300 shadow-lg m-3 ml-5 p-2 rounded-2xl w-40 " />
                                                                             </div>
     
     
@@ -706,7 +722,7 @@ const Dashboard = () => {
                                                                                                     <li className="py-2"><span className="">Ages</span>:<span className="pl-3 font-light">{toy.Ages}</span></li>
                                                                                                     <li className="py-2"><span className="">Category</span>:<span className="pl-3 font-light">{toy.Category.map((cate)=>{return(<p>{cate}</p>)})}</span></li>
                                                                                                     <li className="py-2"><span className="">Price</span>:<span className="pl-3 font-bold text-lime-700">{toy.Price}{toy.Symbol}</span></li>
-                                                                                                    {toy.PriceBeforeOff && <li className="py-2"><span className="">Price Before Off</span>:<span className="pl-3 font-light line-through">{toy.PriceBeforeOff}</span></li>}                                                                                                                    </ul>
+                                                                                                    {toy.PriceBeforeOff && <li className="py-2"><span className="">Price Before Off</span>:<span className="pl-3 font-light line-through">{toy.PriceBeforeOff}{toy.Symbol}</span></li>}                                                                                                                    </ul>
                                                                                             </div>
                                                                                             <div className="absolute flex lg:bottom-10 bottom-5 lg:right-10 right-5 gap-2">
                                                                                                 <Button variant="contained" color="error">Remove</Button> 
@@ -724,7 +740,7 @@ const Dashboard = () => {
                                                             </div>
                                                         </div>
                                                     }{
-                                                        userorders && <div className="bg-neutral-200 w-full h-auto min-h-full overflow-y-scroll rounded-2xl lg:px-8 lg:py-8 px-3">
+                                                        userorders && <div className="bg-neutral-200 w-full h-auto min-h-full rounded-2xl lg:px-8 lg:py-8 px-3">
                                                             <h1 className="text-4xl text-gray-700 font-bold pt-5 lg:pt-0"><ShoppingCartOutlinedIcon className="mb-2 mx-3" sx={{scale:"1.5"}}/>Orders History</h1>
                                                             <div className="flex flex-col gap-5 p-10 h-full w-full">
                                                                 <div className="Delivered">
@@ -842,9 +858,9 @@ const Dashboard = () => {
                                                             </div>
                                                         </div>
                                                     }{
-                                                        bookmarks && <div className="bg-neutral-200 w-full min-h-full h-auto overflow-y-scroll pb-10 rounded-2xl p-5">
+                                                        bookmarks && <div className="bg-neutral-200 w-full min-h-full h-auto pb-10 rounded-2xl p-5">
                                                             <h1 className="text-4xl font-bold text-gray-700"><BookmarksOutlinedIcon className="mb-2 mx-3" sx={{scale:"1.5"}}/>Bookmarks</h1>
-                                                            <div className="grid grid-flow-row xl:grid-cols-4 sm:grid-cols-2 grid-cols-1 lg:gap-10 gap-5 md:p-10 p-16 h-auto">
+                                                            <div className="grid grid-flow-row xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:gap-10 gap-5 md:p-10 p-16 h-auto">
                                                                 {
                                                                     Toys.map((toy)=>
                                                                         user.BookmarksProductCode.map((book)=>{
@@ -883,8 +899,46 @@ const Dashboard = () => {
                                                             </div>
                                                         </div>
                                                     }{
-                                                        messages && <div className="bg-neutral-200 w-full h-auto rounded-2xl overflow-y-scroll pb-10">
+                                                        messages && <div className="bg-neutral-200 w-full h-auto rounded-2xl pb-10 relative">
                                                             <h1 className="font-bold text-gray-700 text-4xl px-8 py-5"><EmailOutlinedIcon className="mb-2 mx-3" sx={{scale:"1.5"}}/>Messages</h1>
+                                                            <button onClick={()=>{setNewMessage(!newMessage)}} className="px-3 py-2 text-xs md:text-base bg-gradient-to-tr from-pink-400 to-yellow-400 text-gray-50 hover:hue-rotate-180 transition duration-300 font-bold rounded-2xl absolute top-7 right-5">New Message</button>
+                                                            {newMessage &&                                                             
+                                                                <div className="mx-10 rounded-2xl bg-neutral-300 h-auto pb-5 ">
+                                                                    <h1 className="text-2xl font-bold text-gray-700 px-5 py-3">New Message</h1>
+                                                                    <form className="flex w-full flex-col pt-7 gap-5 px-5 relative" onSubmit={handleNewMessageSubmit}>
+                                                                        <div className="w-auto">
+                                                                            <label htmlFor="UserName" className="font-bold text-gray-900">UserName:</label>
+                                                                            <input className="px-3 mx-2 py-2 rounded-2xl font-serif w-1/3" type="text" name="UserName" id="UserName" defaultValue={user.UserName} />
+                                                                        </div>
+                                                                        <div>
+                                                                            <label htmlFor="email" className="font-bold text-gray-900">Email:</label>
+                                                                            <input className="px-3 py-2 mx-2 rounded-2xl font-serif w-1/3" type="email" name="email" id="email" defaultValue={user.email} />
+                                                                        </div>
+                                                                        <div className="w-auto">
+                                                                            <label htmlFor="to" className="font-bold text-gray-900">to:</label>
+                                                                            <input className="px-3 mx-2 py-2 rounded-2xl font-serif w-1/3" placeholder="enter UserName" type="text" name="to" id="to" />
+                                                                        </div>
+                                                                        <div>
+                                                                            <label htmlFor="Status" className="font-bold text-gray-900">Status:</label>
+                                                                            <select name="Status" id="Status" className="px-3 mx-2 rounded-2xl font-serif py-1">
+                                                                                <option value="Normal">Normal</option>
+                                                                                <option value="Important">Important</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div className="relative">
+                                                                            <label htmlFor="text" className="absolute top-3  font-bold mb-10 text-gray-900">Text:</label>
+                                                                            <textarea placeholder="enter Message text here" className="px-3 ml-12 py-2 mx-2 rounded-2xl font-serif w-1/3"  name="text" id="text"></textarea>
+                                                                        </div>
+                                                                        <input type="submit" name="submit" id="submit" className="px-3 py-2 md:w-72 w-auto md:ml-16 ml-5 bg-lime-600 rounded-2xl text-white hover:bg-lime-800 cursor-pointer" />
+                                                                                <div className="absolute right-10 bottom-3">
+                                                                                    <IconButton onClick={()=>{setNewMessage(!newMessage)}} color="error" className="scale-150" aria-label="Cancel"  >
+                                                                                        <CancelOutlinedIcon  />
+                                                                                    </IconButton>                                                                                                                
+                                                                                </div>
+                                                                    </form>
+
+                                                                </div>}
+
                                                             <div className="px-10">
                                                                 {
                                                                     Messages.map((mes)=>{
@@ -1008,7 +1062,7 @@ const Dashboard = () => {
                                                     <ul className="pl-3 pt-2">
                                                         <li className="text-lg py-1"><span className="font-mono">Website Number of Products</span>:<span className="font-thin px-4">{Toys.length}<span className="pl-2">Product</span></span></li>
                                                         <li className="text-lg py-1"><span className="font-mono">Website Number of Users</span>:<span className="font-thin px-4">{Users.length}<span className="pl-2">User</span></span></li>
-                                                        <li className="text-lg py-1"><span className="font-mono">Website Domain</span>:<span className="font-thin px-4"><a href="http://localhost:3000">http://localhost:3000</a></span></li>
+                                                        <li className="text-lg py-1"><span className="font-mono">Website Domain</span>:<span className="font-thin px-4"><a href={window.location.host}>{window.location.host}</a></span></li>
                                                     </ul>
                                                 </li>
                                                 <li className="text-xl bg-gray-700 text-gray-100 border-2 border-solid border-gray-200 rounded-2xl p-5 my-3"><h1 className="font-semibold">Other Information</h1>
@@ -1346,11 +1400,11 @@ const Dashboard = () => {
                                     if(user.email === InfoUser.email){
                                         return(
                                             <div className="userPannel w-full lg:flex grid h-full">
-                                                <div className="pannel lg:w-3/12 w-full h-full border-r-4 border-solid border-gray-500  bg-teal-400 ">
-                                                    <div className="border-b-2 border-neutral-700 border-dashed  w-full hidden lg:flex ">
-                                                        {user.UserImageAddress && <Avatar src={user.UserImageAddress} sx={{scale:"1.7"}} className="m-8 mr-0 ml-10 hover:scale-125 transition duration-200"/>}
+                                                <div className="pannel lg:w-3/12 w-full h-full border-r-4 border-solid border-gray-900  bg-teal-900 ">
+                                                    <div className="border-b-2 border-neutral-200 border-dashed  w-full hidden lg:flex ">
+                                                        {user.UserImageAddress && <Avatar src={user.UserImageAddress} sx={{scale:"1.7"}} className="m-8 mr-0 ml-10 hover:scale-125 hover:drop-shadow-[0_0px_3px_rgba(256,256,256,0.8)] transition duration-200"/>}
                                                         {!user.UserImageAddress && <Avatar sx={{scale:"1.7"}} className="m-8"/>}
-                                                        <div className="w-full h-full flex flex-col justify-center items-center pt-6 text-gray-700 ">
+                                                        <div className="w-full h-full flex flex-col justify-center items-center pt-6 text-gray-200 ">
                                                             <h1 className="font-bold text-4xl">{user.UserName}</h1>
                                                             <span className="text-sm text-left font-thin">{user.email}</span>
                                                         </div>
@@ -1358,56 +1412,56 @@ const Dashboard = () => {
                                                     <ul className="lg:grid flex items-center">
                                                         {
                                                             !profile && 
-                                                            <li onClick={handleProfile} className="py-5 text-center lg:text-left lg:pl-10 flex-1 text-lg bg-teal-700 text-gray-100 border-b-2 border-solid border-black font-bold lg:px-3 lg:hover:translate-x-5 lg:hover:rounded-s-2xl lg:hover:rounded-e-2xl hover:bg-teal-100 hover:text-gray-700 cursor-pointer"><AccountCircleOutlinedIcon className=""/><span className="lg:pl-3 hidden lg:inline">Profile</span></li>
+                                                            <li onClick={handleProfile} className="py-5 text-center lg:text-left lg:pl-10 flex-1 text-lg bg-teal-700 text-gray-100 border-b-2 border-solid border-black font-bold lg:px-3 lg:hover:translate-x-5 lg:hover:rounded-s-2xl lg:hover:rounded-e-2xl hover:bg-teal-400 hover:text-gray-700 cursor-pointer"><AccountCircleOutlinedIcon className=""/><span className="lg:pl-3 hidden lg:inline">Profile</span></li>
                                                         }
                                                         {
                                                             profile &&
-                                                            <li onClick={handleProfile} className="py-5 text-center lg:text-left lg:pl-10 flex-1 text-lg bg-teal-900 text-gray-100 border-b-2 border-solid border-black font-bold px-3 lg:hover:translate-x-5 lg:hover:rounded-s-2xl lg:hover:rounded-e-2xl hover:bg-teal-100 hover:text-gray-700 cursor-pointer"><AccountCircleOutlinedIcon/><span className="lg:pl-3 hidden lg:inline">Profile</span></li>
+                                                            <li onClick={handleProfile} className="py-5 text-center lg:text-left lg:pl-10 flex-1 text-lg bg-teal-600 text-gray-100 border-b-2 border-solid border-black font-bold px-3 lg:hover:translate-x-5 lg:hover:rounded-s-2xl lg:hover:rounded-e-2xl hover:bg-teal-400 hover:text-gray-700 cursor-pointer"><AccountCircleOutlinedIcon/><span className="lg:pl-3 hidden lg:inline">Profile</span></li>
                                                         }
                                                         {
                                                             !cart && 
-                                                            <li onClick={handleCart} className="py-5 text-center lg:text-left lg:pl-10 flex-1 text-lg bg-teal-700 text-gray-100 border-b-2 border-solid border-black font-bold px-3 lg:hover:translate-x-5 lg:hover:rounded-s-2xl lg:hover:rounded-e-2xl hover:bg-teal-100 hover:text-gray-700 cursor-pointer"><ShoppingBasketOutlinedIcon/><span className="lg:pl-3 hidden lg:inline">Cart</span></li>
+                                                            <li onClick={handleCart} className="py-5 text-center lg:text-left lg:pl-10 flex-1 text-lg bg-teal-700 text-gray-100 border-b-2 border-solid border-black font-bold px-3 lg:hover:translate-x-5 lg:hover:rounded-s-2xl lg:hover:rounded-e-2xl hover:bg-teal-400 hover:text-gray-700 cursor-pointer"><ShoppingBasketOutlinedIcon/><span className="lg:pl-3 hidden lg:inline">Cart</span></li>
                                                         }{
                                                             cart && 
-                                                            <li onClick={handleCart} className="py-5 text-center lg:text-left lg:pl-10 flex-1 text-lg bg-teal-900 text-gray-100 border-b-2 border-solid border-black font-bold px-3 lg:hover:translate-x-5 lg:hover:rounded-s-2xl lg:hover:rounded-e-2xl hover:bg-teal-100 hover:text-gray-700 cursor-pointer"><ShoppingBasketOutlinedIcon/><span className="lg:pl-3 hidden lg:inline">Cart</span></li>
+                                                            <li onClick={handleCart} className="py-5 text-center lg:text-left lg:pl-10 flex-1 text-lg bg-teal-600 text-gray-100 border-b-2 border-solid border-black font-bold px-3 lg:hover:translate-x-5 lg:hover:rounded-s-2xl lg:hover:rounded-e-2xl hover:bg-teal-400 hover:text-gray-700 cursor-pointer"><ShoppingBasketOutlinedIcon/><span className="lg:pl-3 hidden lg:inline">Cart</span></li>
                                                         }
                                                         {
                                                             !userorders && 
-                                                            <li onClick={handleUserorders} className="py-5 text-center lg:text-left flex-1 lg:pl-10 text-lg bg-teal-700 text-gray-100 border-b-2 border-solid border-black font-bold px-3 lg:hover:translate-x-5 lg:hover:rounded-s-2xl lg:hover:rounded-e-2xl hover:bg-teal-100 hover:text-gray-700 cursor-pointer"><ShoppingCartOutlinedIcon/><span className="lg:pl-3 hidden lg:inline">Orders</span></li>
+                                                            <li onClick={handleUserorders} className="py-5 text-center lg:text-left flex-1 lg:pl-10 text-lg bg-teal-700 text-gray-100 border-b-2 border-solid border-black font-bold px-3 lg:hover:translate-x-5 lg:hover:rounded-s-2xl lg:hover:rounded-e-2xl hover:bg-teal-400 hover:text-gray-700 cursor-pointer"><ShoppingCartOutlinedIcon/><span className="lg:pl-3 hidden lg:inline">Orders</span></li>
                                                         }{
                                                             userorders && 
-                                                            <li onClick={handleUserorders} className="py-5 text-center lg:text-left flex-1 lg:pl-10 text-lg bg-teal-900 text-gray-100 border-b-2 border-solid border-black font-bold px-3 lg:hover:translate-x-5 lg:hover:rounded-s-2xl lg:hover:rounded-e-2xl hover:bg-teal-100 hover:text-gray-700 cursor-pointer"><ShoppingCartOutlinedIcon/><span className="lg:pl-3 hidden lg:inline">Orders</span></li>
+                                                            <li onClick={handleUserorders} className="py-5 text-center lg:text-left flex-1 lg:pl-10 text-lg bg-teal-600 text-gray-100 border-b-2 border-solid border-black font-bold px-3 lg:hover:translate-x-5 lg:hover:rounded-s-2xl lg:hover:rounded-e-2xl hover:bg-teal-400 hover:text-gray-700 cursor-pointer"><ShoppingCartOutlinedIcon/><span className="lg:pl-3 hidden lg:inline">Orders</span></li>
                                                         }
                                                         {
                                                             !bookmarks && 
-                                                            <li onClick={handleBookmarks} className="py-5 text-center lg:text-left flex-1 lg:pl-10 text-lg bg-teal-700 text-gray-100 border-b-2 border-solid border-black font-bold px-3 lg:hover:translate-x-5 lg:hover:rounded-s-2xl lg:hover:rounded-e-2xl hover:bg-teal-100 hover:text-gray-700 cursor-pointer"><BookmarksOutlinedIcon/><span className="lg:pl-3 hidden lg:inline">Bookmarks</span></li>
+                                                            <li onClick={handleBookmarks} className="py-5 text-center lg:text-left flex-1 lg:pl-10 text-lg bg-teal-700 text-gray-100 border-b-2 border-solid border-black font-bold px-3 lg:hover:translate-x-5 lg:hover:rounded-s-2xl lg:hover:rounded-e-2xl hover:bg-teal-400 hover:text-gray-700 cursor-pointer"><BookmarksOutlinedIcon/><span className="lg:pl-3 hidden lg:inline">Bookmarks</span></li>
                                                         }{
                                                             bookmarks && 
-                                                            <li onClick={handleBookmarks} className="py-5 text-center lg:text-left flex-1 lg:pl-10 text-lg bg-teal-900 text-gray-100 border-b-2 border-solid border-black font-bold px-3 lg:hover:translate-x-5 lg:hover:rounded-s-2xl lg:hover:rounded-e-2xl hover:bg-teal-100 hover:text-gray-700 cursor-pointer"><BookmarksOutlinedIcon/><span className="lg:pl-3 hidden lg:inline">Bookmarks</span></li>
+                                                            <li onClick={handleBookmarks} className="py-5 text-center lg:text-left flex-1 lg:pl-10 text-lg bg-teal-600 text-gray-100 border-b-2 border-solid border-black font-bold px-3 lg:hover:translate-x-5 lg:hover:rounded-s-2xl lg:hover:rounded-e-2xl hover:bg-teal-400 hover:text-gray-700 cursor-pointer"><BookmarksOutlinedIcon/><span className="lg:pl-3 hidden lg:inline">Bookmarks</span></li>
                                                         }
                                                         {
                                                             !messages && 
-                                                            <li onClick={handleMessages} className="py-5 text-center lg:text-left flex-1 lg:pl-10 text-lg bg-teal-700 text-gray-100 border-b-2 border-solid border-black font-bold px-3 lg:hover:translate-x-5 lg:hover:rounded-s-2xl lg:hover:rounded-e-2xl hover:bg-teal-100 hover:text-gray-700 cursor-pointer"><EmailOutlinedIcon/><span className="lg:pl-3 hidden lg:inline">Messages</span></li>
+                                                            <li onClick={handleMessages} className="py-5 text-center lg:text-left flex-1 lg:pl-10 text-lg bg-teal-700 text-gray-100 border-b-2 border-solid border-black font-bold px-3 lg:hover:translate-x-5 lg:hover:rounded-s-2xl lg:hover:rounded-e-2xl hover:bg-teal-400 hover:text-gray-700 cursor-pointer"><EmailOutlinedIcon/><span className="lg:pl-3 hidden lg:inline">Messages</span></li>
                                                         }{
                                                             messages && 
-                                                            <li onClick={handleMessages} className="py-5 text-center lg:text-left flex-1 lg:pl-10 text-lg bg-teal-900 text-gray-100 border-b-2 border-solid border-black font-bold px-3 lg:hover:translate-x-5 lg:hover:rounded-s-2xl lg:hover:rounded-e-2xl hover:bg-teal-100 hover:text-gray-700 cursor-pointer"><EmailOutlinedIcon/><span className="lg:pl-3 hidden lg:inline">Messages</span></li>
+                                                            <li onClick={handleMessages} className="py-5 text-center lg:text-left flex-1 lg:pl-10 text-lg bg-teal-600 text-gray-100 border-b-2 border-solid border-black font-bold px-3 lg:hover:translate-x-5 lg:hover:rounded-s-2xl lg:hover:rounded-e-2xl hover:bg-teal-400 hover:text-gray-700 cursor-pointer"><EmailOutlinedIcon/><span className="lg:pl-3 hidden lg:inline">Messages</span></li>
                                                         }
                                                     </ul>
                                                 </div>
-                                                <div className="lg:w-9/12 w-full bg-gray-400 h-auto p-10 overflow-scroll">
+                                                <div className="lg:w-9/12 w-full bg-gray-600 h-auto p-10 overflow-y-scroll">
                                                     {
-                                                        profile && <div className="bg-neutral-200 w-full h-auto rounded-2xl">
+                                                        profile && <div className="bg-neutral-700 w-full h-auto rounded-2xl">
                                                             <div className="avata flex justify-center items-center h-80">
                                                                 {
-                                                                    user.UserImageAddress && <Avatar src={user.UserImageAddress} sx={{scale:"7"}} className="hover:scale-110 transition duration-300"  />
+                                                                    user.UserImageAddress && <Avatar src={user.UserImageAddress} sx={{scale:"7"}} className="hover:scale-110 hover:drop-shadow-[0_0px_3px_rgba(256,256,256,0.8)] transition duration-300"  />
                                                                 }{
                                                                     !user.UserImageAddress && <Avatar />
                                                                 }
                                                             </div>
                                                             <div className="px-5 pb-10">
-                                                                <div className="pb-20 pt-3 px-10 border-gray-600 border-2 relative border-dashed rounded-2xl p-3">
-                                                                    <h1 className="py-5 text-3xl text-gray-700 font-bold"><AccountCircleOutlinedIcon className="mb-2 mx-3" sx={{scale:"1.5"}}/>User Information</h1>
-                                                                    <ul className=" lg:flex grid pl-5">
+                                                                <div className="pb-20 pt-3 px-10 border-gray-50 border-2 relative border-dashed rounded-2xl p-3">
+                                                                    <h1 className="py-5 text-3xl text-gray-200 font-bold"><AccountCircleOutlinedIcon className="mb-2 mx-3" sx={{scale:"1.5"}}/>User Information</h1>
+                                                                    <ul className=" lg:flex grid pl-5 text-gray-300">
                                                                         <div className="flex-1">
                                                                             <li className="py-3 font-bold"><span>User Name</span>:<span className="pl-3 font-normal">{user.UserName}</span></li>
                                                                             <li className="py-3 font-bold"><span>Email</span>:<span className="pl-3 font-normal">{user.email}</span></li>
@@ -1431,15 +1485,15 @@ const Dashboard = () => {
                                                                 </div>
                                                                 {
                                                                     editeProfile &&                                                      
-                                                                    <div className="pb-20 pt-3 my-5 px-10 border-gray-600 border-2 relative border-dashed rounded-2xl p-3">
-                                                                        <h1 className="py-5 text-3xl text-gray-700 font-bold">Edit User Information</h1>
-                                                                        <form className=" flex pl-5">
+                                                                    <div className="pb-20 pt-3 my-5 px-10 border-gray-50 border-2 relative border-dashed rounded-2xl p-3">
+                                                                        <h1 className="py-5 text-3xl text-gray-200 font-bold">Edit User Information</h1>
+                                                                        <form className=" flex pl-5 text-gray-200" onSubmit={handleEditeSubmit}>
                                                                             <div className="flex-1">
                                                                                 <p className="py-3 font-bold"><span>User Name</span>: <input className="px-3 py-2 rounded-2xl bg-transparent border-b-2 border-solid border-black font-thin" defaultValue={user.UserName} type="text" name="userName"/></p>
                                                                                 <p className="py-3 font-bold"><span>Email</span>: <input className="px-3 py-2 rounded-2xl bg-transparent border-b-2 border-solid border-black font-thin" defaultValue={user.email} type="email" name="userName"/></p>
                                                                                 <p className="py-3  font-bold"><span>Password</span>: <input className="px-3 py-2 rounded-2xl bg-transparent border-b-2 border-solid border-black font-thin" type="password" name="userName"/></p>
                                                                                 <p className="py-3  font-bold"><span>Image</span>: <input type="file" name="userName"/></p>
-                                                                                <input type="submit" value="Confirm" className=" bg-lime-500 text-white hover:bg-lime-700 transition duration-300 shadow-lg m-3 ml-5 p-2 rounded-2xl w-40 " />
+                                                                                <input type="submit" value="Confirm" className="cursor-pointer bg-lime-500 text-white hover:bg-lime-700 transition duration-300 shadow-lg m-3 ml-5 p-2 rounded-2xl w-40 " />
                                                                             </div>
     
     
@@ -1454,8 +1508,8 @@ const Dashboard = () => {
                                                             </div>
                                                         </div>
                                                     }{
-                                                        cart && <div className="bg-neutral-200 w-full h-auto min-h-full rounded-2xl">
-                                                            <h1 className="font-bold text-gray-700 text-4xl px-8 py-5"><ShoppingBasketOutlinedIcon className="mb-2 mx-3" sx={{scale:"1.5"}}/>Cart</h1>
+                                                        cart && <div className="bg-neutral-700 w-full h-auto min-h-full rounded-2xl">
+                                                            <h1 className="font-bold text-gray-200 text-4xl px-8 py-5"><ShoppingBasketOutlinedIcon className="mb-2 mx-3" sx={{scale:"1.5"}}/>Cart</h1>
                                                             <div className="flex flex-col gap-5 px-10 h-auto w-full">
                                                                 <div className="Cart w-full">
                                                                     {
@@ -1464,24 +1518,24 @@ const Dashboard = () => {
                                                                             user.CartProductID.map((car)=>{
                                                                                 if(car == toy.Code){
                                                                                     return(
-                                                                                        <div className="bg-neutral-300 relative lg:pb-0 pb-12 my-5 h-full Cart w-full rounded-2xl border-2 border-dashed border-gray-600 p-5 flex">
-                                                                                            <div className="w-auto h-auto max-h-full p-5 lg:flex grid gap-4">
+                                                                                        <div className="bg-neutral-600 relative lg:pb-0 pb-12 my-5 h-full Cart w-full rounded-2xl border-2 border-dashed border-gray-300 p-5 flex">
+                                                                                            <div className="w-auto h-auto max-h-full p-5 lg:flex grid gap-4 text-gray-50">
                                                                                                 <div className="w-64 mr-5 h-64">
                                                                                                     <Link to={"/toy/" + toy.Code}>
                                                                                                         <img src={toy.toyImages[0]} className="rounded-2xl w-full h-full hover:scale-110 transition duration-500"/>
                                                                                                     </Link>
                                                                                                 </div>
                                                                                                 <ul className="font-bold">
-                                                                                                    <li className="py-2"><span className="">Product Name</span>:<span className="pl-3 font-light">{toy.toyName}</span></li>
-                                                                                                    <li className="py-2"><span className="">Product Code</span>:<span className="pl-3 font-light">{toy.Code}</span></li>
-                                                                                                    <li className="py-2"><span className="">Brand</span>:<span className="pl-3 font-light">{toy.Brand}</span></li>
-                                                                                                    <li className="my-2 lg:w-96 w-auto lg:h-48 overflow-hidden"><span className="">Description</span>: <span className="p-2 font-thin text-sm">{toy.Description}</span></li>
+                                                                                                    <li className="py-2"><span className="">Product Name</span>:<span className="pl-3 font-light text-gray-200">{toy.toyName}</span></li>
+                                                                                                    <li className="py-2"><span className="">Product Code</span>:<span className="pl-3 font-light text-gray-200">{toy.Code}</span></li>
+                                                                                                    <li className="py-2"><span className="">Brand</span>:<span className="pl-3 font-light text-gray-200">{toy.Brand}</span></li>
+                                                                                                    <li className="my-2 lg:w-96 w-auto lg:h-48 overflow-hidden"><span className="">Description</span>: <span className="p-2 font-thin text-sm text-gray-200">{toy.Description}</span></li>
                                                                                                 </ul>
                                                                                                 <ul className="font-bold">
-                                                                                                    <li className="py-2"><span className="">Ages</span>:<span className="pl-3 font-light">{toy.Ages}</span></li>
-                                                                                                    <li className="py-2"><span className="">Category</span>:<span className="pl-3 font-light">{toy.Category.map((cate)=>{return(<p>{cate}</p>)})}</span></li>
-                                                                                                    <li className="py-2"><span className="">Price</span>:<span className="pl-3 font-bold text-lime-700">{toy.Price}{toy.Symbol}</span></li>
-                                                                                                    {toy.PriceBeforeOff && <li className="py-2"><span className="">Price Before Off</span>:<span className="pl-3 font-light line-through">{toy.PriceBeforeOff}</span></li>}                                                                                                                    </ul>
+                                                                                                    <li className="py-2"><span className="">Ages</span>:<span className="pl-3 font-light text-gray-200">{toy.Ages}</span></li>
+                                                                                                    <li className="py-2"><span className="">Category</span>:<span className="pl-3 font-light text-gray-200">{toy.Category.map((cate)=>{return(<p>{cate}</p>)})}</span></li>
+                                                                                                    <li className="py-2"><span className="">Price</span>:<span className="pl-3 font-bold text-lime-400">{toy.Price}{toy.Symbol}</span></li>
+                                                                                                    {toy.PriceBeforeOff && <li className="py-2"><span className="">Price Before Off</span>:<span className="pl-3 font-light line-through text-gray-200">{toy.PriceBeforeOff}{toy.Symbol}</span></li>}                                                                                                                    </ul>
                                                                                             </div>
                                                                                             <div className="absolute flex lg:bottom-10 bottom-5 lg:right-10 right-5 gap-2">
                                                                                                 <Button variant="contained" color="error">Remove</Button> 
@@ -1499,11 +1553,11 @@ const Dashboard = () => {
                                                             </div>
                                                         </div>
                                                     }{
-                                                        userorders && <div className="bg-neutral-200 w-full h-auto min-h-full overflow-y-scroll rounded-2xl lg:px-8 lg:py-8 px-3">
-                                                            <h1 className="text-4xl text-gray-700 font-bold pt-5 lg:pt-0"><ShoppingCartOutlinedIcon className="mb-2 mx-3" sx={{scale:"1.5"}}/>Orders History</h1>
+                                                        userorders && <div className="bg-neutral-700 w-full h-auto min-h-full rounded-2xl lg:px-8 lg:py-8 px-3">
+                                                            <h1 className="text-4xl text-gray-200 font-bold pt-5 lg:pt-0"><ShoppingCartOutlinedIcon className="mb-2 mx-3" sx={{scale:"1.5"}}/>Orders History</h1>
                                                             <div className="flex flex-col gap-5 p-10 h-full w-full">
                                                                 <div className="Delivered">
-                                                                    <h1  className="text-2xl font-bold text-gray-700 pb-5">Delivered</h1>
+                                                                    <h1  className="text-2xl font-bold text-gray-200 pb-5">Delivered</h1>
                                                                         {
                                                                             Orders.map((order)=>{
                                                                                 if(user.userID == order.UserID){
@@ -1511,7 +1565,7 @@ const Dashboard = () => {
                                                                                         DeliveredCounter = false; 
                                                                                         return(
                                                                                             <>
-                                                                                                <div className="bg-neutral-300 my-5 h-full Delivered w-full rounded-2xl border-2 border-dashed border-gray-600 p-5">
+                                                                                                <div className="bg-neutral-600 my-5 h-full Delivered w-full rounded-2xl border-2 border-dashed border-gray-200 p-5">
                                                                                                     {
                                                                                                         Toys.map((toy)=>{
                                                                                                             if(toy.Code == order.ProductID){
@@ -1522,17 +1576,17 @@ const Dashboard = () => {
                                                                                                                                 <img src={toy.toyImages[0]} className="rounded-2xl w-full h-full hover:scale-110 transition duration-500"/>
                                                                                                                             </Link>
                                                                                                                         </div>
-                                                                                                                        <div className="w-auto h-auto max-h-full p-5 lg:flex grid gap-4 ">
+                                                                                                                        <div className="w-auto h-auto max-h-full p-5 lg:flex grid gap-4 text-gray-200">
                                                                                                                             <ul className="font-bold">
                                                                                                                                 <li className="py-2"><span className="">Product Name</span>:<span className="pl-3 font-light">{order.ProductName}</span></li>
                                                                                                                                 <li className="py-2"><span className="">Order Code</span>:<span className="pl-3 font-light">{order.OrderID}</span></li>
                                                                                                                                 <li className="py-2"><span className="">Order Date</span>:<span className="pl-3 font-light">{order.OrderDate} , {order.OrderTime}</span></li>
-                                                                                                                                <li className="py-2"><span className="">Delivery</span>:{order.DeliveryStatus && <span className="pl-3 font-bold text-lime-600">Delivered</span>}{!order.DeliveryStatus && <span className="pl-3 font-light text-red-600">{order.Delivery}</span>}</li>
+                                                                                                                                <li className="py-2"><span className="">Delivery</span>:{order.DeliveryStatus && <span className="pl-3 font-bold text-lime-500">Delivered</span>}{!order.DeliveryStatus && <span className="pl-3 font-light text-red-600">{order.Delivery}</span>}</li>
                                                                                                                             </ul>
                                                                                                                             <ul className="font-bold">
                                                                                                                                 <li className="py-2"><span className="">Buyer Name</span>:<span className="pl-3 font-light">{order.BuyerName}</span></li>
                                                                                                                                 <li className="py-2"><span className="">Buyer Addres</span>:<span className="pl-3 font-light">{order.BuyerAddress}</span></li>
-                                                                                                                                <li className="py-2"><span className="">Price</span>:<span className="pl-3 font-bold text-lime-700">{order.Price}{order.Symbol}</span></li>
+                                                                                                                                <li className="py-2"><span className="">Price</span>:<span className="pl-3 font-bold text-lime-400">{order.Price}{order.Symbol}</span></li>
                                                                                                                                 <li className="py-2"><span className="">Seller Name</span>:<span className="pl-3 font-light">{order.SellerName}</span></li>
                                                                                                                                 
                                                                                                                             </ul>
@@ -1552,14 +1606,14 @@ const Dashboard = () => {
                                                                         }
                                                                         {
                                                                             DeliveredCounter &&
-                                                                                    <div className="text-center font-thin text-xl text-gray-700">
+                                                                                    <div className="text-center font-thin text-xl text-gray-200">
                                                                                         <p>No item.</p>
                                                                                     </div>
     
                                                                         }
                                                                 </div>
                                                                 <div className="NotDelivered">
-                                                                    <h1 className="text-2xl font-bold text-gray-700 pb-5">NotDelivered</h1>
+                                                                    <h1 className="text-2xl font-bold text-gray-200 pb-5">NotDelivered</h1>
                                                                     {
                                                                             Orders.map((order)=>{
                                                                                 if(user.userID == order.UserID){
@@ -1567,7 +1621,7 @@ const Dashboard = () => {
                                                                                         NotDeliveredCounter = false; 
                                                                                             return(
                                                                                                 <>
-                                                                                                    <div className="bg-neutral-300 my-5 h-full Delivered w-full rounded-2xl border-2 border-dashed border-gray-600 p-5">
+                                                                                                    <div className="bg-neutral-600 my-5 h-full Delivered w-full rounded-2xl border-2 border-dashed border-gray-200 p-5">
                                                                                                         {
                                                                                                             Toys.map((toy)=>{
                                                                                                                 if(toy.Code == order.ProductID){
@@ -1578,17 +1632,17 @@ const Dashboard = () => {
                                                                                                                                     <img src={toy.toyImages[0]} className="rounded-2xl w-full h-full hover:scale-110 transition duration-500"/>
                                                                                                                                 </Link>
                                                                                                                             </div>
-                                                                                                                            <div className="w-auto h-auto max-h-full p-5 lg:flex grid gap-4 ">
+                                                                                                                            <div className="w-auto h-auto max-h-full p-5 lg:flex grid gap-4 text-gray-200">
                                                                                                                                 <ul className="font-bold">
                                                                                                                                     <li className="py-2"><span className="">Product Name</span>:<span className="pl-3 font-light">{order.ProductName}</span></li>
                                                                                                                                     <li className="py-2"><span className="">Order Code</span>:<span className="pl-3 font-light">{order.OrderID}</span></li>
                                                                                                                                     <li className="py-2"><span className="">Order Date</span>:<span className="pl-3 font-light">{order.OrderDate} , {order.OrderTime}</span></li>
-                                                                                                                                    <li className="py-2"><span className="">Delivery</span>:{order.DeliveryStatus && <span className="pl-3 font-light text-lime-600">{order.Delivery}</span>}{!order.DeliveryStatus && <span className="pl-3 font-light text-red-600">In Way...</span>}</li>
+                                                                                                                                    <li className="py-2"><span className="">Delivery</span>:{order.DeliveryStatus && <span className="pl-3 font-light text-lime-500">{order.Delivery}</span>}{!order.DeliveryStatus && <span className="pl-3 font-light text-red-400">In Way...</span>}</li>
                                                                                                                                 </ul>
                                                                                                                                 <ul className="font-bold">
                                                                                                                                     <li className="py-2"><span className="">Buyer Name</span>:<span className="pl-3 font-light">{order.BuyerName}</span></li>
                                                                                                                                     <li className="py-2"><span className="">Buyer Addres</span>:<span className="pl-3 font-light">{order.BuyerAddress}</span></li>
-                                                                                                                                    <li className="py-2"><span className="">Price</span>:<span className="pl-3 font-bold text-lime-700">{order.Price}{order.Symbol}</span></li>
+                                                                                                                                    <li className="py-2"><span className="">Price</span>:<span className="pl-3 font-bold text-lime-400">{order.Price}{order.Symbol}</span></li>
                                                                                                                                     <li className="py-2"><span className="">Seller Name</span>:<span className="pl-3 font-light">{order.SellerName}</span></li>
                                                                                                                                     
                                                                                                                                 </ul>
@@ -1617,16 +1671,16 @@ const Dashboard = () => {
                                                             </div>
                                                         </div>
                                                     }{
-                                                        bookmarks && <div className="bg-neutral-200 w-full min-h-full h-auto overflow-y-scroll pb-10 rounded-2xl p-5">
-                                                            <h1 className="text-4xl font-bold text-gray-700"><BookmarksOutlinedIcon className="mb-2 mx-3" sx={{scale:"1.5"}}/>Bookmarks</h1>
-                                                            <div className="grid grid-flow-row xl:grid-cols-4 sm:grid-cols-2 grid-cols-1 lg:gap-10 gap-5 md:p-10 p-16 h-auto">
+                                                        bookmarks && <div className="bg-neutral-700 w-full min-h-full h-auto pb-10 rounded-2xl p-5">
+                                                            <h1 className="text-4xl font-bold text-gray-200"><BookmarksOutlinedIcon className="mb-2 mx-3" sx={{scale:"1.5"}}/>Bookmarks</h1>
+                                                            <div className="grid grid-flow-row xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:gap-10 gap-5 md:p-10 p-16 h-auto">
                                                                 {
                                                                     Toys.map((toy)=>
                                                                         user.BookmarksProductCode.map((book)=>{
                                                                             if(toy.Code == book){
                                                                                 return(
                                                                                 <Link to={"/toy/" + toy.Code} className="h-auto  w-60 ">
-                                                                                    <div className="border-2 border-solid w-full border-black h-auto rounded-2xl overflow-hidden relative">
+                                                                                    <div className="border-2 border-solid w-full border-gray-50 h-auto rounded-2xl overflow-hidden relative">
                                                                                         <img src={toy.toyImages[0]} className="h-56 w-full"/>
                                                                                         <div className="absolute w-full top-48 bg-neutral-800 text-white bg-opacity-60 min-h-full px-5 py-3 hover:-translate-y-48 transition duration-700 rounded-t-2xl">
                                                                                             <div className="flex justify-center">
@@ -1658,32 +1712,69 @@ const Dashboard = () => {
                                                             </div>
                                                         </div>
                                                     }{
-                                                        messages && <div className="bg-neutral-200 w-full h-auto rounded-2xl overflow-y-scroll pb-10">
-                                                            <h1 className="font-bold text-gray-700 text-4xl px-8 py-5"><EmailOutlinedIcon className="mb-2 mx-3" sx={{scale:"1.5"}}/>Messages</h1>
+                                                        messages && <div className="bg-neutral-700 w-full h-auto rounded-2xl pb-10 relative">
+                                                            <h1 className="font-bold text-gray-200 text-4xl px-8 py-5"><EmailOutlinedIcon className="mb-2 mx-3" sx={{scale:"1.5"}}/>Messages</h1>
+                                                            <button onClick={()=>{setNewMessage(!newMessage)}} className="px-3 py-2 bg-gradient-to-tr from-slate-900 to-slate-600 text-gray-100 hover:hue-rotate-180 transition duration-300 font-bold rounded-2xl absolute top-7 right-5">New Message</button>
+                                                            {newMessage &&                                                             
+                                                                <div className="mx-10 rounded-2xl bg-neutral-600 h-auto pb-5 ">
+                                                                    <h1 className="text-2xl font-bold text-gray-100 px-5 py-3">New Message</h1>
+                                                                    <form className="flex w-full flex-col pt-7 gap-5 px-5 relative" onSubmit={handleNewMessageSubmit}>
+                                                                        <div className="w-auto">
+                                                                            <label htmlFor="UserName" className="font-bold text-gray-100">UserName:</label>
+                                                                            <input className="px-3 mx-2 py-2 rounded-2xl font-serif w-1/3" type="text" name="UserName" id="UserName" defaultValue={user.UserName} />
+                                                                        </div>
+                                                                        <div>
+                                                                            <label htmlFor="email" className="font-bold text-gray-100">Email:</label>
+                                                                            <input className="px-3 py-2 mx-2 rounded-2xl font-serif w-1/3" type="email" name="email" id="email" defaultValue={user.email} />
+                                                                        </div>
+                                                                        <div className="w-auto">
+                                                                            <label htmlFor="to" className="font-bold text-gray-100">to:</label>
+                                                                            <input className="px-3 mx-2 py-2 rounded-2xl font-serif w-1/3" placeholder="enter UserName" type="text" name="to" id="to" />
+                                                                        </div>
+                                                                        <div>
+                                                                            <label htmlFor="Status" className="font-bold text-gray-100">Status:</label>
+                                                                            <select name="Status" id="Status" className="px-3 mx-2 rounded-2xl font-serif py-1">
+                                                                                <option value="Normal">Normal</option>
+                                                                                <option value="Important">Important</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div className="relative">
+                                                                            <label htmlFor="text" className="absolute top-3  font-bold mb-10 text-gray-100">Text:</label>
+                                                                            <textarea placeholder="enter Message text here" className="px-3 ml-12 py-2 mx-2 rounded-2xl font-serif w-1/3"  name="text" id="text"></textarea>
+                                                                        </div>
+                                                                        <input type="submit" name="submit" id="submit" className="px-3 py-2 md:w-72 w-auto md:ml-16 ml-5 bg-lime-600 rounded-2xl text-white hover:bg-lime-300 hover:text-gray-700 cursor-pointer" />
+                                                                                <div className="absolute right-10 bottom-3">
+                                                                                    <IconButton onClick={()=>{setNewMessage(!newMessage)}} color="error" className="scale-150" aria-label="Cancel"  >
+                                                                                        <CancelOutlinedIcon  />
+                                                                                    </IconButton>                                                                                                                
+                                                                                </div>
+                                                                    </form>
+
+                                                                </div>}
                                                             <div className="px-10">
                                                                 {
                                                                     Messages.map((mes)=>{
                                                                         if(mes.UserID == user.userID){
                                                                                 if(mes.Status === "Important"){
                                                                                     return(
-                                                                                        <Accordion className="my-2">
+                                                                                        <Accordion className="my-2"  style={{backgroundColor: grey[700]}}>
                                                                                             <AccordionSummary
                                                                                             expandIcon={<ExpandMoreIcon />}
                                                                                             aria-controls="panel2a-content"
                                                                                             id="panel2a-header"
                                                                                             >
-                                                                                            <Typography><ErrorOutlineIcon color="warning" sx={{scale:"1.2"}}/> <span className="pl-3">{mes.Title}</span></Typography>
+                                                                                            <Typography><ErrorOutlineIcon color="warning" sx={{scale:"1.2"}}/> <span className="pl-3 text-gray-100">{mes.Title}</span></Typography>
                                                                                             </AccordionSummary>
-                                                                                            <AccordionDetails>
-                                                                                                <div className="flex gap-10">
-                                                                                                    <h1 className="text-3xl font-bold px-5">{mes.Title}</h1>
-                                                                                                    <h1 className="pt-3">Status: <span className="text-red-500 font-bold pl-2">{mes.Status}</span></h1>
-                                                                                                    <h1 className="pt-3">From: <span className="text-gray-600 font-bold pl-2">{mes.From}</span></h1>
-                                                                                                    <button className="px-3 py-2 text-white bg-red-500 hover:bg-red-800 transition duration-300 rounded-2xl font-bold absolute right-5">Remove</button>
+                                                                                            <AccordionDetails className="">
+                                                                                                <div className="flex gap-10 ">
+                                                                                                    <h1 className="text-3xl font-bold px-5 text-gray-50">{mes.Title}</h1>
+                                                                                                    <h1 className="pt-3 text-gray-200">Status: <span className="text-red-400 font-bold pl-2">{mes.Status}</span></h1>
+                                                                                                    <h1 className="pt-3 text-gray-200">From: <span className="text-gray-200 font-bold pl-2">{mes.From}</span></h1>
+                                                                                                    <button className="px-3 py-2 text-white bg-red-700 hover:bg-red-400 hover:text-gray-600 transition duration-300 rounded-2xl font-bold absolute right-5">Remove</button>
                                                                                                 </div>
                                                                                                 <div className="info px-8 py-8">
                                                                                                     <p className="text">
-                                                                                                        <p className="px-5 font-thin text-lg">
+                                                                                                        <p className="px-5 font-thin text-lg text-gray-100">
                                                                                                             {mes.text}
                                                                                                         </p>
                                                                                                     </p>
@@ -1695,25 +1786,25 @@ const Dashboard = () => {
                                                                                     )
                                                                                 }else{
                                                                                     return(
-                                                                                        <Accordion className="my-2">
+                                                                                        <Accordion className="my-2"  style={{backgroundColor: grey[700]}}>
                                                                                             <AccordionSummary
                                                                                             expandIcon={<ExpandMoreIcon />}
                                                                                             aria-controls="panel2a-content"
                                                                                             id="panel2a-header"
                                                                                             >
-                                                                                            <Typography><EmailOutlinedIcon color="info" /> <span className="pl-3">{mes.Title}</span></Typography>
+                                                                                            <Typography><EmailOutlinedIcon color="info" /> <span className="pl-3 text-gray-50">{mes.Title}</span></Typography>
                                                                                             </AccordionSummary>
                                                                                             <AccordionDetails>
-                                                                                                <div className="lg:flex grid lg:gap-10 gap-1">
+                                                                                                <div className="lg:flex grid lg:gap-10 gap-1 text-gray-200">
                                                                                                     <h1 className="text-3xl font-bold px-5">{mes.Title}</h1>
-                                                                                                    <h1 className="pt-3 pl-8 lg:pl-0">Status: <span className="text-gray-700 font-bold pl-2">{mes.Status}</span></h1>
-                                                                                                    <h1 className="pt-3 pl-8 lg:pl-0">From: <span className="text-gray-600 font-bold pl-2">{mes.From}</span></h1>
+                                                                                                    <h1 className="pt-3 pl-8 lg:pl-0 text-gray-50">Status: <span className="text-gray-300 font-bold pl-2">{mes.Status}</span></h1>
+                                                                                                    <h1 className="pt-3 pl-8 lg:pl-0 text-gray-50">From: <span className="text-gray-300 font-bold pl-2">{mes.From}</span></h1>
                                                                                                     <button className="px-3 py-2 text-white bg-red-500 hover:bg-red-800 transition duration-300 rounded-2xl font-bold absolute right-5 hidden md:inline">Remove</button>
                                                                                                     <button className="px-3 py-2 text-white bg-red-500 hover:bg-red-800 transition duration-300 rounded-2xl font-bold absolute right-5 bottom-5 md:hidden">Remove</button>
                                                                                                 </div>
                                                                                                 <div className="info px-8 py-8">
                                                                                                     <p className="text">
-                                                                                                        <p className="lg:px-5 p-0 pb-8 font-thin text-lg">
+                                                                                                        <p className="lg:px-5 p-0 pb-8 font-thin text-lg text-gray-100">
                                                                                                             {mes.text}
                                                                                                         </p>
                                                                                                     </p>

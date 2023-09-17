@@ -23,7 +23,7 @@ const Register = () => {
         "Hi, for Login to website as Admin to can Use this email and password:"
     )
     console.log(
-        "Admi@gmail.com ___ pass: Admin"
+        "Admin@gmail.com ___ pass: Admin"
     )
     console.log(
         "for Login to website as User to can Use these emails and passwords:"
@@ -69,7 +69,7 @@ const Register = () => {
                 if(user.email === "Admin@gmail.com"){
                     localStorage.setItem("user", JSON.stringify(user))
                     navigate("/Dashboard");
-                    window.location.reload(false);
+                    // window.location.reload(false);
                     // navigate("/Dashboard/" + user.userID);
 
                 }

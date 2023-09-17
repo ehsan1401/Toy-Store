@@ -5,7 +5,9 @@
         "email":"Admin@gmail.com",
         "password":"Admin",
         "UserImageAddress":"/img/user/1/Admin.jpg",
-        "Role":"Admin"
+        "Role":"Admin",
+        "CartProductID":[],
+        "BookmarksProductCode" : []
     },
     {
         "userID":2,

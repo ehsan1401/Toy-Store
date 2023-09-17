@@ -304,7 +304,7 @@ const Store = () => {
                     </div>
                     <div className='h-auto p-3 bg-white bg-opacity-40 w-auto my-5 pb-8 rounded-2xl'>
                         <h1 className='text-white pl-10 px-5 pt-3 text-2xl font-bold'>You might like it...</h1>
-                        <div className=' h-full w-auto md:flex grid gap-5 py-3 px-10 overflow-scroll'>
+                        <div className=' h-full w-auto md:flex grid gap-5 py-3 px-10 overflow-x-hidden'>
                             {
 
                                     Toys.slice(Math.floor(Math.random() * (Toys.length))%Toys.length/2 , Math.floor(Math.random() * (Toys.length))%Toys.length/2 + 3).map((toy)=>{

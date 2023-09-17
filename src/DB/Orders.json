@@ -50,7 +50,7 @@
         "BuyerEmail":"ehsan.good1382@gmail.com",
         "SellerName":"Toy Store",
         "Delivery": "3-5 Days",
-        "DeliveryStatus": "",
+        "DeliveryStatus": "Delivered",
         "Price" : "180.70",
         "Symbol" : "€"
     },
@@ -61,7 +61,7 @@
         "UserID": "NotUser" , 
         "ProductID": 11,
         "ProductName":"Fate/kaleid liner Prisma Illya Illyasviel von Einzbern: Summer Dress ver",
-        "ProductNumber": 3 ,
+        "ProductNumber": 1 ,
         "BuyerName":"Hra. Aake Jurva",
         "BuyerPhone":"040 180 3004",
         "BuyerAddress":"Budapest,Erzsébet dűlősor 5.",
@@ -69,7 +69,7 @@
         "SellerName":"Toy Store",
         "Delivery": "3-5 Days",
         "DeliveryStatus": "Delivered",
-        "Price" : "463.04999999999995",
+        "Price" : "154.35",
         "Symbol" : "€"
     }
 ]
