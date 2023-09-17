@@ -399,15 +399,44 @@ const Dashboard = () => {
                                                 </ul>
                                             </li> 
                                         </ul>
-                                        <div className="AddUser">
-                                        <h1 className="font-bold text-gray-700 text-2xl py-5 text-left">Add User</h1>
+                                        <div className="AddUser my-5">
                                             <form className="py-5 text-left bg-gray-200 px-10 rounded-2xl">
+                                            <h1 className="font-bold text-gray-700 text-2xl py-5 text-left">Add User</h1>
                                                 <label htmlFor="email" className="font-mono pr-4">Email</label>
                                                 <input type="email" name="eamil" id="email" className="mb-3 py-2 px-2 border-yellow-400 border-2 border-solid rounded-xl" /><br />
                                                 <label htmlFor="password" className="font-mono pr-4">Password</label>
                                                 <input type="password" name="password" id="password" className="py-2 px-2 border-yellow-400 border-2 border-solid rounded-xl" /><br />
                                                 <input type="submit" value="Submit" className="rounded-2xl hover:bg-lime-600 cursor-pointer bg-lime-400 py-2 px-3 my-2" />
                                             </form>
+                                        </div>
+                                        <div className="text-left my-5 ">                                                           
+                                            <div className="rounded-2xl bg-gray-200 h-auto py-5 px-10 ">
+                                                <h1 className="text-2xl font-bold text-gray-700 px-5 py-3">Send Message</h1>
+                                                <form className="flex w-full flex-col pt-7 gap-5 px-5 relative" onSubmit={handleNewMessageSubmit}>
+                                                    <div className="w-auto">
+                                                        <label htmlFor="UserName" className="font-bold text-gray-900">UserName:</label>
+                                                        <input className="px-3 mx-2 py-2 rounded-2xl font-serif w-1/3" type="text" name="UserName" id="UserName" defaultValue="Admin" />
+                                                    </div>
+                                                    <div className="w-auto">
+                                                        <label htmlFor="to" className="font-bold text-gray-900">to:</label>
+                                                        <input className="px-3 mx-2 py-2 rounded-2xl font-serif w-1/3" placeholder="enter UserName" type="text" name="to" id="to" />
+                                                    </div>
+                                                    <div>
+                                                        <label htmlFor="Status" className="font-bold text-gray-900">Status:</label>
+                                                        <select name="Status" id="Status" className="px-3 mx-2 rounded-2xl font-serif py-1">
+                                                            <option value="Normal">Normal</option>
+                                                            <option value="Important">Important</option>
+                                                        </select>
+                                                    </div>
+                                                    <div className="relative">
+                                                        <label htmlFor="text" className="absolute top-3  font-bold mb-10 text-gray-900">Text:</label>
+                                                        <textarea placeholder="enter Message text here" className="px-3 ml-12 py-2 mx-2 rounded-2xl font-serif w-1/3"  name="text" id="text"></textarea>
+                                                    </div>
+                                                    <input type="submit" name="submit" id="submit" className="px-3 py-2 md:w-72 w-auto md:ml-16 ml-5 bg-lime-600 rounded-2xl text-white hover:bg-lime-800 cursor-pointer" />
+
+                                                </form>
+
+                                            </div>
                                         </div>
                                     </div>}
                                     {product && <div className="h-full w-full border-dashed border-2 border-gray-500 p-5 overflow-y-scroll bg-gradient-to-tr from-pink-400 to-yellow-400">
@@ -1212,15 +1241,44 @@ const Dashboard = () => {
                                                 </ul>
                                             </li> 
                                         </ul>
-                                        <div className="AddUser">
-                                        <h1 className="font-bold text-gray-200 text-2xl py-5 text-left">Add User</h1>
-                                            <form className="py-5 text-left bg-gray-700 text-gray-50 px-10 rounded-2xl">
+                                        <div className="AddUser my-5">
+                                            <form className="py-5 px-10 text-left bg-gray-700 text-gray-50 rounded-2xl">
+                                                <h1 className="font-bold text-gray-200 text-2xl py-5 text-left">Add User</h1>
                                                 <label htmlFor="email" className="font-mono pr-4">Email</label>
                                                 <input type="email" name="eamil" id="email" className="mb-3 py-2 px-2 border-yellow-400 border-2 border-solid rounded-xl" /><br />
                                                 <label htmlFor="password" className="font-mono pr-4">Password</label>
                                                 <input type="password" name="password" id="password" className="py-2 px-2 border-yellow-400 border-2 border-solid rounded-xl" /><br />
                                                 <input type="submit" value="Submit" className="rounded-2xl hover:bg-lime-400 cursor-pointer bg-lime-600 py-2 px-3 my-2" />
                                             </form>
+                                        </div>
+                                        <div className="text-left my-5 ">                                                           
+                                            <div className="rounded-2xl bg-gray-700 h-auto py-5 px-10 ">
+                                                <h1 className="text-2xl font-bold text-gray-200 px-5 py-3">Send Message</h1>
+                                                <form className="flex w-full flex-col pt-7 gap-5 px-5 relative" onSubmit={handleNewMessageSubmit}>
+                                                    <div className="w-auto">
+                                                        <label htmlFor="UserName" className="font-bold text-gray-50">UserName:</label>
+                                                        <input className="px-3 mx-2 py-2 rounded-2xl font-serif w-1/3" type="text" name="UserName" id="UserName" defaultValue="Admin" />
+                                                    </div>
+                                                    <div className="w-auto">
+                                                        <label htmlFor="to" className="font-bold text-gray-50">to:</label>
+                                                        <input className="px-3 mx-2 py-2 rounded-2xl font-serif w-1/3" placeholder="enter UserName" type="text" name="to" id="to" />
+                                                    </div>
+                                                    <div>
+                                                        <label htmlFor="Status" className="font-bold text-gray-50">Status:</label>
+                                                        <select name="Status" id="Status" className="px-3 mx-2 rounded-2xl font-serif py-1">
+                                                            <option value="Normal">Normal</option>
+                                                            <option value="Important">Important</option>
+                                                        </select>
+                                                    </div>
+                                                    <div className="relative">
+                                                        <label htmlFor="text" className="absolute top-3  font-bold mb-10 text-gray-50">Text:</label>
+                                                        <textarea placeholder="enter Message text here" className="px-3 ml-12 py-2 mx-2 rounded-2xl font-serif w-1/3"  name="text" id="text"></textarea>
+                                                    </div>
+                                                    <input type="submit" name="submit" id="submit" className="px-3 py-2 md:w-72 w-auto md:ml-16 ml-5 bg-lime-600 rounded-2xl text-white hover:bg-lime-800 cursor-pointer" />
+
+                                                </form>
+
+                                            </div>
                                         </div>
                                     </div>}
                                     {product && <div className="h-full w-full border-dashed border-2 border-gray-500 p-5 overflow-y-scroll bg-gradient-to-tr from-slate-500 to-slate-800">
